@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        GetComponent<HealthSystem>().Init();
         StartCoroutine(WaveStartDelay());
     }
 
