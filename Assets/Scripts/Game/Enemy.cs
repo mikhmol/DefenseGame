@@ -40,5 +40,4 @@ public class Enemy : MonoBehaviour
         //Revert to default color
         GetComponent<SpriteRenderer>().color = Color.white;
     }
-
 }

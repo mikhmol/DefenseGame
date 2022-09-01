@@ -20,5 +20,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //Start the enemy spawning
         GetComponent<EnemySpawner>().StartSpawning();
+        GetComponent<CloudSpawner>().StartSpawning();
     }
 }
