@@ -16,6 +16,12 @@ public class Cloud : MonoBehaviour
     //Moving forward
     void Move()
     {
+        // check if cloud went out of screen, its will self-destruct
+        if (this.gameObject.transform.position.x >= 16.5)
+        {
+            Destroy(this.gameObject);
+        }
+
         transform.Translate(transform.right * moveSpeed * Time.deltaTime);
     }
     //Lose health
