@@ -8,6 +8,18 @@ public class Enemy : MonoBehaviour
     public int health, attackPower;
     public float moveSpeed;
 
+    // wayIndex - index of road from the List, speed - moving speed of enemy
+    private int wayIndex = 0;
+    [SerializeField] private float speed = 10f;
+
+    // all waypoints list
+    List<GameObject> wayPoints = new List<GameObject> ();
+    private void Start()
+    {
+        // we initialized the list of waypoints from GameController script
+        wayPoints = GameObject.Find("Main Camera").GetComponent<GameController>().wayPoints; 
+    }
+
     void Update()
     {
         Move();
@@ -16,10 +28,26 @@ public class Enemy : MonoBehaviour
     //Moving forward
     void Move()
     {
-        transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
+        // dir - direction of enemy
+        Vector3 dir = wayPoints[wayIndex].transform.position - transform.position;
+
+        // moving gameobject by using Translate function
+        transform.Translate(dir.normalized * Time.deltaTime * speed);
+
+        // checking distance to the next waypoint
+        if (Vector3.Distance(transform.position, wayPoints[wayIndex].transform.position) < 0.3f)
+        {
+            if (wayIndex < wayPoints.Count - 1)
+            {
+                wayIndex++;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
     //Lose health
-
     void LoseHealth()
     {
         //Decrease health value
