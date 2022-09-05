@@ -6,18 +6,17 @@ public class Enemy : MonoBehaviour
 {
     //Health, Attack Power, MoveSpeed
     public int health, attackPower;
-    public float moveSpeed;
+    public float moveSpeed = 1.5f;
 
-    // wayIndex - index of road from the List, speed - moving speed of enemy
-    private int wayIndex = 0;
-    [SerializeField] private float speed = 10f;
+    private Transform target;
+    private int wavepointInxed = 0;
 
     // all waypoints list
     List<GameObject> wayPoints = new List<GameObject> ();
+
     private void Start()
     {
-        // we initialized the list of waypoints from GameController script
-        wayPoints = GameObject.Find("Main Camera").GetComponent<GameController>().wayPoints; 
+        target = Waypoints.waypoints[0];
     }
 
     void Update()
@@ -25,28 +24,33 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-    //Moving forward
+    // Enemy moving method
     void Move()
     {
-        // dir - direction of enemy
-        Vector3 dir = wayPoints[wayIndex].transform.position - transform.position;
-
-        // moving gameobject by using Translate function
-        transform.Translate(dir.normalized * Time.deltaTime * speed);
-
-        // checking distance to the next waypoint
-        if (Vector3.Distance(transform.position, wayPoints[wayIndex].transform.position) < 0.3f)
+        // We are getting direction of the next waypoint and moving it
+        Vector3 dir =  target.position - transform.position;
+        transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World);
+    
+        // if the enemy reached waypoint, its going to the next one
+        if(Vector3.Distance(transform.position, target.position) <= 0.05f)
         {
-            if (wayIndex < wayPoints.Count - 1)
-            {
-                wayIndex++;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            GetNextWaypoint();
         }
     }
+
+    private void GetNextWaypoint()
+    {
+        // if enemy reached the last waypoint - it's destroying
+        if(wavepointInxed >= Waypoints.waypoints.Length - 1)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        wavepointInxed++;
+        target = Waypoints.waypoints[wavepointInxed];
+    }
+
     //Lose health
     void LoseHealth()
     {
