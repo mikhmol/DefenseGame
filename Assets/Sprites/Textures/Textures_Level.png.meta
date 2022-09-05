@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fec596a9a407a854abda4c6d6d701e28
+guid: b9e04890d5ec0904a8739ac48e759b8d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 46
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,18 +101,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -128,11 +116,158 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stolbiki_0
+      name: Textures_Level_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 200
+        x: 16
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c982a3f4479b749a551a2dbb2620fa
+      internalID: 426707985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238cba1aaf01c4a4899a4b806b1fa100
+      internalID: -1372682050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc57c075182cde40816b13fe6be2544
+      internalID: 566818163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e270bb1cd75b1b043ae0bcbc2fcedeb9
+      internalID: 817788270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a5ade724de1204481f8600132e6c4b
+      internalID: 1031481458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f692a27fb71205441bf95a47269c186d
+      internalID: 762547159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_8
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1856
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da052d1897d4ef34c85c0f94f226b604
+      internalID: -1367325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures_Level_9
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1808
         width: 96
         height: 96
       alignment: 0
@@ -142,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31d4ebc47d3d2d94f880f8f3919349e8
-      internalID: -1761581702
+      spriteID: e4d3523b0d78b5a4c90c187d568c25b8
+      internalID: -1134485329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stolbiki_1
+      name: Textures_Level_14
       rect:
         serializedVersion: 2
-        x: 234
-        y: 280
-        width: 38
-        height: 32
+        x: 656
+        y: 1825
+        width: 92
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,18 +298,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2120a5fa4b8d643b053be55ad82aa6
-      internalID: -571091631
+      spriteID: e0dd47c6b1e13644fb1fc3289e754627
+      internalID: 1760219543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stolbiki_2
+      name: Textures_Level_6
       rect:
         serializedVersion: 2
-        x: 288
-        y: 280
+        x: 416
+        y: 1872
         width: 32
         height: 32
       alignment: 0
@@ -184,197 +319,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f67e46d39fc344f947cd079ef03450
-      internalID: 527685840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_3
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 280
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bac40c44641014840a58ec6756f2b654
-      internalID: 1630954260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_4
-      rect:
-        serializedVersion: 2
-        x: 378
-        y: 280
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83c7be53b0e22ee46aa789e6c27252c7
-      internalID: -782007567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_5
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 270
-        width: 11
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87cf63fa6bc4d164984726389ad083ed
-      internalID: -522969094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_6
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 204
-        width: 54
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5948059e478249b4190c0ab8615fa099
-      internalID: -371010458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_7
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 232
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98dbd4b6cb240044a8fe840c6bfb4ffd
-      internalID: 1973382405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_8
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 167
-        width: 23
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a46c39bcc9a5ba4a8a027ccaefc9c04
-      internalID: 2117563930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_9
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 167
-        width: 24
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3fc3d9aafc16784fa88197f7af663b6
-      internalID: 505577146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 184
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfad79297d41cac45a02c56c1515030c
-      internalID: -2092953757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stolbiki_11
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 136
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3830c603486d29c428df60c6aa8d030d
-      internalID: -1685295957
+      spriteID: 7f840f1d766519542853faf3f6327fbf
+      internalID: 2042791305
       vertices: []
       indices: 
       edges: []
@@ -390,18 +336,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stolbiki_2: 527685840
-      stolbiki_1: -571091631
-      stolbiki_0: -1761581702
-      stolbiki_5: -522969094
-      stolbiki_4: -782007567
-      stolbiki_7: 1973382405
-      stolbiki_8: 2117563930
-      stolbiki_6: -371010458
-      stolbiki_9: 505577146
-      stolbiki_10: -2092953757
-      stolbiki_11: -1685295957
-      stolbiki_3: 1630954260
+      Textures_Level_12: -452948917
+      Textures_Level_8: -1367325
+      Textures_Level_14: 1760219543
+      Textures_Level_9: -1134485329
+      Textures_Level_0: 426707985
+      Textures_Level_11: -1481040414
+      Textures_Level_7: 1145627519
+      Textures_Level_6: 2042791305
+      Textures_Level_5: 762547159
+      Textures_Level_13: 1463411728
+      Textures_Level_10: 384010456
+      Textures_Level_4: 1031481458
+      Textures_Level_1: -1372682050
+      Textures_Level_3: 817788270
+      Textures_Level_2: 566818163
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
