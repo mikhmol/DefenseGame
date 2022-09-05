@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // is this enemy target for tower now
+    public bool IsTarget = false;
+
     //Health, Attack Power, MoveSpeed
     public int health, attackPower;
     public float moveSpeed = 1.5f;
@@ -52,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
 
     //Lose health
-    void LoseHealth()
+    public void LoseHealth()
     {
         //Decrease health value
         health--;
