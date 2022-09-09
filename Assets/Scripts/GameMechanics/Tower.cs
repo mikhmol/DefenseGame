@@ -56,8 +56,6 @@ public class Tower : MonoBehaviour
                     break;
                 }
             }
-                
-            
         }
     }
 
@@ -80,12 +78,13 @@ public class Tower : MonoBehaviour
     {
         while (enemy.GetComponent<Enemy>().health > 0)
         {
+            yield return new WaitForSeconds(ReloadTime/2);
             GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
             Debug.Log(transform.position);
             bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
             bullets.Add(bullet);
             //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
-            yield return new WaitForSeconds(ReloadTime);
+            yield return new WaitForSeconds(ReloadTime/2);
         }
     }
 }

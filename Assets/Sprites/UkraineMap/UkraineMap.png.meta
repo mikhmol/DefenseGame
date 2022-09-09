@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -66,9 +66,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
@@ -119,8 +119,176 @@ TextureImporter:
       name: UkraineMap_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 763
+        y: 372
+        width: 123
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430ff132ac590324b94a01aa7de71c14
+      internalID: -1023157762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_2
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 536
+        width: 42
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac068396a258a5a4eb40396c7a42ce3e
+      internalID: 242931417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_3
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 424
+        width: 219
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb87c3eb5e579ce4fb1c41de271f1886
+      internalID: -1366796272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_4
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 90
+        width: 304
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ced6a3205e8e9489c370000ab8f407
+      internalID: -1460901182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_5
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 369
+        width: 123
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22928faa24ffeb846a9e2655c18a072b
+      internalID: 847602490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_6
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 533
+        width: 42
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f4747b2f24ac54d8a67db07f7530b7
+      internalID: 1780239191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_7
+      rect:
+        serializedVersion: 2
+        x: 1937
+        y: 421
+        width: 219
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcaf22580176c0447aee3b09fb56c046
+      internalID: 581673007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_8
+      rect:
+        serializedVersion: 2
+        x: 2196
+        y: 87
+        width: 304
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff6aa009b13c1c4bb6fd0099925edd7
+      internalID: -770061605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_9
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 72
         width: 600
         height: 450
       alignment: 0
@@ -130,8 +298,470 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dad9c76543de084496911318ebc579f
-      internalID: -1396176108
+      spriteID: 5886231e27b91544290e9e84d87fc18b
+      internalID: 1554313676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_10
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 295
+        width: 82
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a2611f7419a3f4ebfffa84c5b662cd
+      internalID: -591648474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_11
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 224
+        width: 223
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f534b27f82bc64493ba03e565a8230
+      internalID: 1484014834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_12
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 292
+        width: 82
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0be426d7dcc48a458c160a2717b3e7a
+      internalID: 972349072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_13
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 220
+        width: 223
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5943f43d8820cc4a8e7d7218a1bb457
+      internalID: -1259216258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_14
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 189
+        width: 99
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea293724fbef494395a6e5466dd2138
+      internalID: -1767018176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_15
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 123
+        width: 62
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606692fd8d643214f871646aa8517939
+      internalID: -942886441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_16
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 186
+        width: 99
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc3b6b543b89a1478be3d5664f1d1ba
+      internalID: 1457844220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_17
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 123
+        width: 62
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc029244d7cf164796b711fb00b2312
+      internalID: -128449323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_18
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 125
+        width: 13
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154de05bc75cba04eafa061844134570
+      internalID: 61254563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_19
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 56
+        width: 102
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f919fe0899e4f054e85da201a2c0a360
+      internalID: 1428309942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_20
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 76
+        width: 142
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb5c827e9fdddc44bb02fea065b944b
+      internalID: -1831123773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_21
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 128
+        width: 13
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94956ad32d38bcf4bbede853f2b3744a
+      internalID: 157286575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_22
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 53
+        width: 102
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c79818aa785704790fbbc96cf6005c
+      internalID: 2091520767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_23
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 73
+        width: 142
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165647a3b696dda448a805ff4358bb11
+      internalID: -1664172170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_24
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 85
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1391f9d589d5fb14aa39cd49ed0dcedb
+      internalID: 1541767121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_25
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 88
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac032befe05aa543b5d26de81d35730
+      internalID: -545206707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_26
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 67
+        width: 142
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478a122d11cc9484d9202a78ef131ea0
+      internalID: 1940351618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_27
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 64
+        width: 142
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0157c29ecc5e7de4fa0cdbe00d3da2d6
+      internalID: -1417528649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_28
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 17
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b666356ea44f4f045b85da661939ebcc
+      internalID: 1827581909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_29
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 17
+        width: 83
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1115f30f69abb484bbf5d56e9de6aa18
+      internalID: 326684989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_30
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 20
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f33fd9bf321c8e45b8051dba7148cff
+      internalID: -1803489950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UkraineMap_31
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 14
+        width: 83
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5d458f4eef7224f995dce9458adcac
+      internalID: -649688237
       vertices: []
       indices: 
       edges: []
@@ -147,8 +777,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UkraineMap_1: -1396176108
-      UkraineMap_0: 847254621
+      UkraineMap_11: 1484014834
+      UkraineMap_19: 1428309942
+      UkraineMap_23: -1664172170
+      UkraineMap_4: -1460901182
+      UkraineMap_27: -1417528649
+      UkraineMap_30: -1803489950
+      UkraineMap_29: 326684989
+      UkraineMap_15: -942886441
+      UkraineMap_5: 847602490
+      UkraineMap_9: 1554313676
+      UkraineMap_22: 2091520767
+      UkraineMap_21: 157286575
+      UkraineMap_24: 1541767121
+      UkraineMap_1: -1023157762
+      UkraineMap_31: -649688237
+      UkraineMap_12: 972349072
+      UkraineMap_25: -545206707
+      UkraineMap_8: -770061605
+      UkraineMap_7: 581673007
+      UkraineMap_6: 1780239191
+      UkraineMap_10: -591648474
+      UkraineMap_18: 61254563
+      UkraineMap_0: 1057393266
+      UkraineMap_3: -1366796272
+      UkraineMap_14: -1767018176
+      UkraineMap_20: -1831123773
+      UkraineMap_26: 1940351618
+      UkraineMap_16: 1457844220
+      UkraineMap_17: -128449323
+      UkraineMap_2: 242931417
+      UkraineMap_13: -1259216258
+      UkraineMap_28: 1827581909
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
