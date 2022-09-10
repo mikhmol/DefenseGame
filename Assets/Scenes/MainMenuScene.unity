@@ -2286,11 +2286,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4839a1ead7a72f5499751cc032011176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCamSize: 0
+  maxCamSize: 0
+  zoomSpeed: 5
   moveSpeed: 4
-  maxX: 1.81
-  minX: -3.27
-  maxY: 1.68
-  minY: -2.31
+  mapRenderer: {fileID: 1037072249}
 --- !u!1 &1334383876
 GameObject:
   m_ObjectHideFlags: 0
