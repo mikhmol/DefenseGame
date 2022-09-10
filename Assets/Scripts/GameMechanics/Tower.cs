@@ -43,9 +43,8 @@ public class Tower : MonoBehaviour
             }
         if (enemies.Count > 0)
         {
-            if(enemies[0] == null)
-                enemies.RemoveAt(0);
-            foreach (var enemy in enemies)
+            int _randomEnemyIndex = Random.RandomRange(0, enemies.Count);
+            GameObject enemy = enemies[_randomEnemyIndex];
             {
                 if (!enemy.GetComponent<Enemy>().IsTarget && !hasTarget)
                 {
@@ -53,7 +52,6 @@ public class Tower : MonoBehaviour
                     enemy.GetComponent<Enemy>().IsTarget = true;
                     coroutine = Shoot(enemy);
                     StartCoroutine(coroutine);
-                    break;
                 }
             }
         }
@@ -82,6 +80,8 @@ public class Tower : MonoBehaviour
             GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
             Debug.Log(transform.position);
             bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+            bullet.transform.LookAt(enemy.transform.position);
+            bullet.transform.RotateAroundLocal(Vector3.up, 90);
             bullets.Add(bullet);
             //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
             yield return new WaitForSeconds(ReloadTime/2);
