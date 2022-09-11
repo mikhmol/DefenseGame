@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    static bool IsAttack = false;
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] float Radius;
     [SerializeField] float ReloadTime;
     [SerializeField] CircleCollider2D Collider;
     List<GameObject> enemies;
     List<GameObject> bullets;
+
+    float timeOfLastShoot = Time.time;
 
     private IEnumerator coroutine;
 
@@ -21,6 +24,11 @@ public class Tower : MonoBehaviour
         bullets = new List<GameObject>();
         Physics2D.IgnoreLayerCollision(7, 7);
         Physics2D.IgnoreLayerCollision(7, 8);
+        Attack.action += StartShoot;
+    }
+    private void OnDestroy()
+    {
+        Attack.action -= StartShoot;
     }
     private void Update()
     {
@@ -41,12 +49,12 @@ public class Tower : MonoBehaviour
                     bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
                 
             }
-        if (enemies.Count > 0)
+        if (enemies.Count > 0 && IsAttack)
         {
             int _randomEnemyIndex = Random.RandomRange(0, enemies.Count);
             GameObject enemy = enemies[_randomEnemyIndex];
             {
-                if (!enemy.GetComponent<Enemy>().IsTarget && !hasTarget)
+                if (/*!enemy.GetComponent<Enemy>().IsTarget && */ !hasTarget)
                 {
                     hasTarget = true;
                     enemy.GetComponent<Enemy>().IsTarget = true;
@@ -74,17 +82,33 @@ public class Tower : MonoBehaviour
     }
     IEnumerator Shoot(GameObject enemy)
     {
+        
         while (enemy.GetComponent<Enemy>().health > 0)
         {
-            yield return new WaitForSeconds(ReloadTime/2);
-            GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-            Debug.Log(transform.position);
-            bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
-            bullet.transform.LookAt(enemy.transform.position);
-            bullet.transform.RotateAroundLocal(Vector3.up, 90);
-            bullets.Add(bullet);
-            //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
-            yield return new WaitForSeconds(ReloadTime/2);
+            if (Time.time - timeOfLastShoot > ReloadTime)
+            {
+                GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+                Debug.Log(transform.position);
+                bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                // LookAt 2D
+                Vector3 target = enemy.transform.position;
+                // get the angle
+                Vector3 norTar = (target - transform.position).normalized;
+                float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+                // rotate to angle
+                Quaternion rotation = new Quaternion();
+                rotation.eulerAngles = new Vector3(0, 0, angle);
+                bullet.transform.rotation = rotation;
+                bullets.Add(bullet);
+                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                timeOfLastShoot = Time.time;
+            }
+            yield return null;
         }
+    }
+
+    private void StartShoot(bool sth)
+    {
+        IsAttack = sth;
     }
 }
