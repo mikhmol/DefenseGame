@@ -12,11 +12,17 @@ public class Tower : MonoBehaviour
     List<GameObject> enemies;
     List<GameObject> bullets;
 
-    float timeOfLastShoot = Time.time;
+    float timeOfLastShoot;
 
     private IEnumerator coroutine;
 
     private bool hasTarget = false;
+
+    private void Awake()
+    {
+        float timeOfLastShoot = Time.time;
+    }
+
     private void Start()
     {
         Collider.radius = Radius;
