@@ -14242,7 +14242,7 @@ GameObject:
   - component: {fileID: 1132162710}
   - component: {fileID: 1132162709}
   m_Layer: 0
-  m_Name: arest - Edited
+  m_Name: test_arestovych
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14308,7 +14308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132162708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.53, y: -4.6, z: 0}
+  m_LocalPosition: {x: -11.45, y: -4.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
