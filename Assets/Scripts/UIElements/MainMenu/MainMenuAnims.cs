@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MMAnimationManager : MonoBehaviour
+public class MainMenuAnims : MonoBehaviour
 {
     private Animator planesAnimation;
 

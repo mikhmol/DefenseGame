@@ -57,7 +57,7 @@ public class Tower : MonoBehaviour
             }
         if (enemies.Count > 0 && IsAttack)
         {
-            int _randomEnemyIndex = Random.RandomRange(0, enemies.Count);
+            int _randomEnemyIndex = Random.Range(0, enemies.Count);
             GameObject enemy = enemies[_randomEnemyIndex];
             {
                 if (/*!enemy.GetComponent<Enemy>().IsTarget && */ !hasTarget)
