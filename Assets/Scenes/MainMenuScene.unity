@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0.28627452, g: 0.16078432, b: 0.13725491, a: 0.7176471}
   m_EffectDistance: {x: -3.8, y: 13.29}
   m_UseGraphicAlpha: 1
 --- !u!114 &62426775
@@ -557,6 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 82909795}
+  - component: {fileID: 82909796}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -587,6 +588,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &82909796
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82909794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 020c346fd1e44404780c68964e50f1d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &111447692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,8 +2207,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.04144597
-      value: 1.3435502
+      time: 0.006777525
+      value: 1.5019463
       inSlope: 0.6222484
       outSlope: 0.6222484
       tangentMode: 0
@@ -2195,8 +2216,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.45720068
     - serializedVersion: 3
-      time: 0.547059
-      value: 1.1173022
+      time: 0.51239055
+      value: 1.2756983
       inSlope: -2.0875854
       outSlope: -2.0875854
       tangentMode: 0
@@ -2204,8 +2225,8 @@ MonoBehaviour:
       inWeight: 0.06136352
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0364572
-      value: 1.2893021
+      time: 1.0017887
+      value: 1.4476982
       inSlope: -1.5784501
       outSlope: -1.5784501
       tangentMode: 0
@@ -2213,8 +2234,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.5695231
-      value: 0.56904334
+      time: 1.5348547
+      value: 0.72743946
       inSlope: -0.44560832
       outSlope: -0.44560832
       tangentMode: 0
@@ -2222,8 +2243,8 @@ MonoBehaviour:
       inWeight: 0.4648418
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.9534241
-      value: 0.93554443
+      time: 1.9187557
+      value: 1.0939406
       inSlope: 0.6507255
       outSlope: 0.6507255
       tangentMode: 34
@@ -2231,17 +2252,17 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2.3129377
-      value: 1.0602148
-      inSlope: 1.4656233
-      outSlope: 1.4656233
+      time: 2.2782693
+      value: 1.2186109
+      inSlope: 1.4656231
+      outSlope: 1.4656231
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2.5739403
-      value: 1.7347684
+      time: 2.5392718
+      value: 1.8931645
       inSlope: 0.87084824
       outSlope: 0.87084824
       tangentMode: 34
@@ -2249,8 +2270,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 3.0381427
-      value: 1.3435502
+      time: 3.0034742
+      value: 1.5019463
       inSlope: -0.842775
       outSlope: -0.842775
       tangentMode: 34
@@ -2601,7 +2622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.57, y: -3.774}
+  m_AnchoredPosition: {x: 17.569946, y: -3.7739983}
   m_SizeDelta: {x: 35.09, y: 45.463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981490085
@@ -2616,7 +2637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0.28627452, g: 0.16078432, b: 0.13725491, a: 0.7176471}
   m_EffectDistance: {x: -3.8, y: 13.29}
   m_UseGraphicAlpha: 1
 --- !u!114 &981490086
@@ -3336,7 +3357,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5348,7 +5369,7 @@ GameObject:
   - component: {fileID: 1718759145}
   - component: {fileID: 1718759148}
   - component: {fileID: 1718759147}
-  - component: {fileID: 1718759146}
+  - component: {fileID: 1718759149}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -5376,21 +5397,6 @@ RectTransform:
   m_AnchoredPosition: {x: 22.5, y: 0.20000458}
   m_SizeDelta: {x: 44.95, y: 27.72}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1718759146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718759144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -3.8, y: 13.29}
-  m_UseGraphicAlpha: 1
 --- !u!114 &1718759147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5433,6 +5439,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718759144}
   m_CullTransparentMesh: 1
+--- !u!114 &1718759149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718759144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.28627452, g: 0.16078432, b: 0.13725491, a: 0.7176471}
+  m_EffectDistance: {x: -3.8, y: 13.29}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1774352965
 GameObject:
   m_ObjectHideFlags: 0
