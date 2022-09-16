@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957232919298195486}
   - component: {fileID: 9008274366067921352}
-  - component: {fileID: 874322967083475249}
+  - component: {fileID: -8825464072340888066}
   - component: {fileID: 5519100466251428586}
   - component: {fileID: 8062831202550446822}
   - component: {fileID: 9030976716880070811}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &874322967083475249
+--- !u!114 &-8825464072340888066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,10 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 464805920825883047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37dbf09d321bdb44a2f60267cf8837f, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c23205cd6f93a45bb2bed60a4d38db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1433131217600347588, guid: a1e11ecf29c967f4ba29551b3441e6a2, type: 3}
+  _damage: 40
   Radius: 15
   ReloadTime: 3
   Collider: {fileID: 5519100466251428586}
@@ -153,5 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104bac7d57dd4354d8e24493821b96cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
   movementSpeed: 2
+  map: {fileID: 0}
