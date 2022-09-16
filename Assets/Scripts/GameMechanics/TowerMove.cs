@@ -5,10 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class TowerMove : MonoBehaviour
 {
-    public Tilemap map;
     [SerializeField] private float movementSpeed;
-    MouseInput mouseInput;
+
+    [SerializeField] Tilemap map;
+
+    private MouseInput mouseInput;
+
     private Vector3 destination;
+
     private void Awake()
     {
         mouseInput = new MouseInput();
@@ -26,6 +30,8 @@ public class TowerMove : MonoBehaviour
 
     void Start()
     {
+        map = GameObject.Find("SpawnPoint").GetComponent<Tilemap>();
+
         destination = transform.position;
         mouseInput.Mouse.MouseClick.performed += _ => MouseClick();
     }
@@ -34,7 +40,9 @@ public class TowerMove : MonoBehaviour
     {
         Vector2 mousePosition = mouseInput.Mouse.MousePosition.ReadValue<Vector2>();
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
         Vector3Int gridPosition = map.WorldToCell(mousePosition);
+
         if(map.HasTile(gridPosition))
         {
             destination = mousePosition;

@@ -17040,7 +17040,7 @@ MonoBehaviour:
   testSprite: {fileID: 0}
   towersPrefabs:
   - {fileID: 2099079141184706892, guid: 066d39e3b4f1a1d48935d56fdae1f2cd, type: 3}
-  - {fileID: 2960603622437667335, guid: 7714ee8acce310045b358ea3db97aa3e, type: 3}
+  - {fileID: 464805920825883047, guid: 7714ee8acce310045b358ea3db97aa3e, type: 3}
   spawnTowerRoot: {fileID: 2135036637}
   towersUI:
   - {fileID: 1049347776}
