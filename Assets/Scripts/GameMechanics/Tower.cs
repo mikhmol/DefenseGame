@@ -89,7 +89,7 @@ public class Tower : MonoBehaviour
     IEnumerator Shoot(GameObject enemy)
     {
         
-        while (enemy.GetComponent<Enemy>().health > 0)
+        while (enemy.GetComponent<Health>().health > 0)
         {
             if (Time.time - timeOfLastShoot > ReloadTime)
             {

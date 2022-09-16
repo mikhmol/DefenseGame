@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class Enemy : MonoBehaviour
     public bool IsTarget = false;
 
     //Health, Attack Power, MoveSpeed
-    public int health, attackPower;
+    //public int health;
+    public int attackPower;
     public float moveSpeed = 1.5f;
 
     private Transform target;
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
         if(wavepointInxed >= Waypoints.waypoints.Length - 1)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene(0);
             return;
         }
 
@@ -58,12 +61,12 @@ public class Enemy : MonoBehaviour
     public void LoseHealth()
     {
         //Decrease health value
-        health--;
+        //health--;
         //Blink Red animation
         StartCoroutine(BlinkRed());
         //Check if health is zero => destroy enemy
-        if (health <= 0)
-            Destroy(gameObject);
+        //if (health <= 0)
+          //  Destroy(gameObject);
     }
 
     IEnumerator BlinkRed()
@@ -74,5 +77,13 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         //Revert to default color
         GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Finish")
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

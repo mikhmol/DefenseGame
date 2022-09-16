@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2396567536013279060}
   - component: {fileID: 8622268048981576055}
   - component: {fileID: 3045852406327146467}
+  - component: {fileID: -7690211464812013950}
+  - component: {fileID: -8254001565511289617}
   - component: {fileID: 8763807127517865114}
   - component: {fileID: 641898629045492627}
   m_Layer: 8
@@ -100,6 +102,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpeed: 10
+--- !u!114 &-7690211464812013950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433131217600347588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406b92bb431d90e4cab823345bfbc006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDamage: 4
+  collisionTag: isEnemy
+--- !u!114 &-8254001565511289617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433131217600347588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61a2146ff8af5a4a9e9cc29bee282b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
 --- !u!70 &8763807127517865114
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
