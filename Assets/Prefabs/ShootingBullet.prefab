@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406b92bb431d90e4cab823345bfbc006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: 4
+  collisionDamage: 40
   collisionTag: isEnemy
 --- !u!114 &-8254001565511289617
 MonoBehaviour:
