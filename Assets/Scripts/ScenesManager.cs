@@ -20,6 +20,12 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene("MapScene");
     }
 
+    //testLevel
+    public void LoadTestLevel()
+    {
+        SceneManager.LoadScene("TestScene");
+    }
+
     public void LoadLevelScene()
     {
 

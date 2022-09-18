@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] Slider volumeSlider;
+    [SerializeField] private Slider volumeSlider;
 
-    private void Start()
+    private void Awake()
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
