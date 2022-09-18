@@ -95,7 +95,7 @@ public class Tower : MonoBehaviour
         {
             if (Time.time - timeOfLastShoot > ReloadTime)
             {
-                int amountOfBullets = Random.RandomRange(3, 6);
+                int amountOfBullets = Random.Range(3, 6);
                 for (int i = 0; i < amountOfBullets; i++)
                 {
                     GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);

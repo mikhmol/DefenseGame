@@ -4,26 +4,44 @@ using UnityEngine;
 
 public class MainMenuAnims : MonoBehaviour
 {
-    private Animator planesAnimation;
+    private Animator animatedDecorations;
 
-    int randomAnim = 0, prevAnim = 0;
+    private int randomAnim = 0, prevAnim = 0;
+    private float waitTime;
+
+    [SerializeField] private int animsCount;
+
+    private void Awake()
+    {
+        if(this.gameObject.name == "Boom")
+        {
+            animsCount = 20;
+            waitTime = 1f;
+        }
+        else if(this.gameObject.name == "Fighter")
+        {
+            animsCount = this.gameObject.transform.childCount;
+            waitTime = 3f;
+        }
+    }
 
     IEnumerator Start()
     {
-        planesAnimation = GetComponent<Animator>();
+        animatedDecorations = GetComponent<Animator>();
 
         while (true)
         {
-            yield return new WaitForSeconds(3);
+            
+            yield return new WaitForSeconds(waitTime);
 
             while (randomAnim == prevAnim) 
             {
-                randomAnim = Random.Range(0, 10);
+                randomAnim = Random.Range(0, animsCount);
             }
 
             prevAnim = randomAnim;
-            planesAnimation.SetInteger("PlaneIndex", randomAnim);
-            planesAnimation.SetTrigger("Plane");
+            animatedDecorations.SetInteger("AnimIndex", randomAnim);
+            animatedDecorations.SetTrigger("Anim");
         }
     }
 }
