@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4449705232431632997}
   - component: {fileID: 8986176419896956285}
   - component: {fileID: 3762211968096934262}
+  - component: {fileID: 3331783846258202642}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: isEnemy
@@ -99,9 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a276575f5021914f989cc94dcddf828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTarget: 1
-  attackPower: 2
   moveSpeed: 1.5
+  BulletPrefab: {fileID: 0}
+  attackPower: 2
+  Radius: 5
+  ReloadTime: 3
+  Collider: {fileID: 3331783846258202642}
+  IsTarget: 1
 --- !u!114 &8986176419896956285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +147,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9624625, y: 0.3963964}
   m_EdgeRadius: 0
+--- !u!58 &3331783846258202642
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779700573257359219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.48123124

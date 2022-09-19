@@ -5,13 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    //Health, Attack Power, MoveSpeed
+    //public int health;
+    [SerializeField] float moveSpeed = 1.5f;
+    [SerializeField] GameObject BulletPrefab;
+    [SerializeField] int attackPower;
+    [SerializeField] float Radius;
+    [SerializeField] float ReloadTime;
+    [SerializeField] CircleCollider2D Collider;
+    List<GameObject> towers;
+    List<GameObject> bullets;
+
+    float timeOfLastShoot;
+
+    private IEnumerator coroutine;
+
     // is this enemy target for tower now
     public bool IsTarget = false;
 
-    //Health, Attack Power, MoveSpeed
-    //public int health;
-    public int attackPower;
-    public float moveSpeed = 1.5f;
+    
 
     private Transform target;
     private int wavepointInxed = 0;
@@ -22,13 +34,38 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         target = Waypoints.waypoints[0];
+        float timeOfLastShoot = Time.time;
+        Collider.radius = Radius;
+        towers = new List<GameObject>();
+        bullets = new List<GameObject>();
+        Physics2D.IgnoreLayerCollision(7, 7);
+        Physics2D.IgnoreLayerCollision(7, 8);
+        //Physics2D.IgnoreLayerCollision(0, 0);
+        //Physics2D.IgnoreLayerCollision(0, 7);
     }
 
     void Update()
     {
         Move();
+        if (towers.Count > 0)
+            Shoot(towers[Random.RandomRange(0, towers.Count)]);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Finish")
+        {
+            SceneManager.LoadScene(0);
+        }
+        if(other.gameObject.tag == "isUnit")
+            towers.Add(other.gameObject);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log(collision.tag);
+        towers.Remove(collision.gameObject);
+    }
     // Enemy moving method
     void Move()
     {
@@ -79,11 +116,37 @@ public class Enemy : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    IEnumerator Shoot(GameObject enemy)
     {
-        if (other.tag == "Finish")
+
+        while (enemy.GetComponent<Health>().health > 0)
         {
-            SceneManager.LoadScene(0);
+            if (Time.time - timeOfLastShoot > ReloadTime)
+            {
+                int amountOfBullets = Random.Range(1, 3);
+                for (int i = 0; i < amountOfBullets; i++)
+                {
+                    GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+                    bullet.GetComponent<CollisionDamage>().collisionDamage = attackPower;
+                    Debug.Log(transform.position);
+                    bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                    // LookAt 2D
+                    Vector3 target = enemy.transform.position;
+                    // get the angle
+                    Vector3 norTar = (target - transform.position).normalized;
+                    float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+                    // rotate to angle
+                    Quaternion rotation = new Quaternion();
+                    rotation.eulerAngles = new Vector3(0, 0, angle);
+                    bullet.transform.rotation = rotation;
+                    bullets.Add(bullet);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                timeOfLastShoot = Time.time;
+
+            }
+            yield return null;
         }
     }
 }

@@ -83,10 +83,14 @@ public class Tower : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<Enemy>().IsTarget = false;
-        hasTarget = false;
-        StopCoroutine(coroutine);
-        enemies.Remove(collision.gameObject);
+        if (collision.gameObject.tag == "isEnemy")
+        {
+            collision.gameObject.GetComponent<Enemy>().IsTarget = false;
+            hasTarget = false;
+            StopCoroutine(coroutine);
+            timeOfLastShoot = Time.time;
+            enemies.Remove(collision.gameObject);
+        }
     }
     IEnumerator Shoot(GameObject enemy)
     {
