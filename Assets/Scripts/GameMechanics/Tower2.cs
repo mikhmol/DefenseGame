@@ -7,6 +7,7 @@ public class Tower2 : MonoBehaviour
     static bool IsAttack = false;
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] int _damage;
+    [SerializeField] int _health;
     [SerializeField] float Radius;
     [SerializeField] float ReloadTime;
     [SerializeField] CircleCollider2D Collider;
@@ -18,7 +19,7 @@ public class Tower2 : MonoBehaviour
     private IEnumerator coroutine;
 
     private bool hasTarget = false;
-
+    public int Health { get { return _health; } }
     private void Awake()
     {
         float timeOfLastShoot = Time.time;
@@ -29,8 +30,8 @@ public class Tower2 : MonoBehaviour
         Collider.radius = Radius;
         enemies = new List<GameObject>();
         bullets = new List<GameObject>();
-        Physics2D.IgnoreLayerCollision(7, 7);
-        Physics2D.IgnoreLayerCollision(7, 8);
+        //Physics2D.IgnoreLayerCollision(7, 7);
+        //Physics2D.IgnoreLayerCollision(7, 8);
         Attack.action += StartShoot;
     }
     private void OnDestroy()
@@ -98,6 +99,7 @@ public class Tower2 : MonoBehaviour
                 bullet.GetComponent<CollisionDamage>().collisionDamage = _damage;
                 Debug.Log(transform.position);
                 bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                 // LookAt 2D
                 Vector3 target = enemy.transform.position;
                 // get the angle
@@ -114,7 +116,27 @@ public class Tower2 : MonoBehaviour
             yield return null;
         }
     }
+    //Lose health
+    public void LoseHealth()
+    {
+        //Decrease health value
+        //health--;
+        //Blink Red animation
+        StartCoroutine(BlinkRed());
+        //Check if health is zero => destroy enemy
+        //if (health <= 0)
+        //  Destroy(gameObject);
+    }
 
+    IEnumerator BlinkRed()
+    {
+        //Change the spriterendere color to red
+        GetComponent<SpriteRenderer>().color = Color.red;
+        //wait for really small amount of time
+        yield return new WaitForSeconds(0.2f);
+        //Revert to default color
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
     private void StartShoot(bool sth)
     {
         IsAttack = sth;

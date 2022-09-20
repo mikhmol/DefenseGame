@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    bool hasTarget = false;
     //Health, Attack Power, MoveSpeed
     //public int health;
     [SerializeField] float moveSpeed = 1.5f;
@@ -13,8 +14,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float Radius;
     [SerializeField] float ReloadTime;
     [SerializeField] CircleCollider2D Collider;
-    List<GameObject> towers;
-    List<GameObject> bullets;
+    List<GameObject> towers = new List<GameObject>();
+    List<GameObject> bullets = new List<GameObject>();
 
     float timeOfLastShoot;
 
@@ -36,21 +37,46 @@ public class Enemy : MonoBehaviour
         target = Waypoints.waypoints[0];
         float timeOfLastShoot = Time.time;
         Collider.radius = Radius;
-        towers = new List<GameObject>();
-        bullets = new List<GameObject>();
         Physics2D.IgnoreLayerCollision(7, 7);
-        Physics2D.IgnoreLayerCollision(7, 8);
-        //Physics2D.IgnoreLayerCollision(0, 0);
+        //Physics2D.IgnoreLayerCollision(7, 8);
+        Physics2D.IgnoreLayerCollision(0, 0);
         //Physics2D.IgnoreLayerCollision(0, 7);
     }
 
     void Update()
     {
         Move();
-        if (towers.Count > 0)
-            Shoot(towers[Random.RandomRange(0, towers.Count)]);
-    }
+        if (towers.Count > 0 && Time.time - timeOfLastShoot > ReloadTime && !hasTarget)
+        {
+            //Debug.Log(towers[Random.RandomRange(0, towers.Count)]);
+            coroutine = Shoot(towers[Random.RandomRange(0, towers.Count)]);
+            StartCoroutine(coroutine);
+            hasTarget = true;
+        }
+        if (bullets.Count > 0)
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                var bullet = bullets[i];
+                Vector2 targetPos = bullet.GetComponent<ShootingBullet>().TargetPos;
+                if (Vector2.Distance(bullet.transform.position, targetPos) < 0.01f)
+                {
+                    Destroy(bullet);
+                    bullets.Remove(bullet);
+                    i++;
+                    if (i < bullets.Count)
+                        bullet = bullets[i];
+                }
+                if (bullet != null)
+                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
 
+            }
+    }
+    private void OnDestroy()
+    {
+        Debug.Log("enemy cild");
+        foreach(GameObject b in bullets) 
+            Destroy(b);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
@@ -63,8 +89,14 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-        towers.Remove(collision.gameObject);
+        //Debug.Log(collision.tag);
+        if(collision.gameObject.tag == "isUnit")
+        {
+            towers.Remove(collision.gameObject);
+            StopCoroutine(coroutine);
+            hasTarget = false;
+        }
+        
     }
     // Enemy moving method
     void Move()
@@ -118,18 +150,36 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Shoot(GameObject enemy)
     {
-
-        while (enemy.GetComponent<Health>().health > 0)
+        int hp = 0;
+        try 
         {
+            hp = enemy.GetComponent<Tower2>().Health;
+        }
+        catch(System.Exception)
+        {
+            try
+            {
+                hp = enemy.GetComponent<Tower>().Health;
+            }
+            catch(System.Exception)
+            {
+
+            }
+        }
+        while (hp > 0)
+        {
+           
+
             if (Time.time - timeOfLastShoot > ReloadTime)
             {
-                int amountOfBullets = Random.Range(1, 3);
+                int amountOfBullets = 1; //Random.Range(1, 3);
                 for (int i = 0; i < amountOfBullets; i++)
                 {
                     GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                     bullet.GetComponent<CollisionDamage>().collisionDamage = attackPower;
-                    Debug.Log(transform.position);
+                    //Debug.Log(transform.position);
                     bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                    Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                     // LookAt 2D
                     Vector3 target = enemy.transform.position;
                     // get the angle
@@ -140,9 +190,11 @@ public class Enemy : MonoBehaviour
                     rotation.eulerAngles = new Vector3(0, 0, angle);
                     bullet.transform.rotation = rotation;
                     bullets.Add(bullet);
+                    //Debug.Log("enemy shooot");
                     yield return new WaitForSeconds(0.1f);
                 }
                 //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                //Debug.Log("new time "+ Time.time);
                 timeOfLastShoot = Time.time;
 
             }

@@ -17,9 +17,29 @@ public class ShootingBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("bullet colision " + collision.tag);
         if (collision.gameObject.tag == "isEnemy")
         {
             collision.gameObject.GetComponent<Enemy>().LoseHealth();
+        }
+        else if(collision.gameObject.tag == "isUnit")
+        {
+            GameObject enemy = collision.gameObject;
+            try
+            {
+                enemy.GetComponent<Tower2>().LoseHealth();
+            }
+            catch (System.Exception)
+            {
+                try
+                {
+                    enemy.GetComponent<Tower>().LoseHealth();
+                }
+                catch (System.Exception)
+                {
+
+                }
+            }
         }
     }
     //private static void Create(Vector3 spawnPosition)

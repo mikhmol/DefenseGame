@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1433131217600347588, guid: a1e11ecf29c967f4ba29551b3441e6a2, type: 3}
   _damage: 3
+  _health: 20
   Radius: 3
   ReloadTime: 1.5
   Collider: {fileID: 4061820601395039520}
