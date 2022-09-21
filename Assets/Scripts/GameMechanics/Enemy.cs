@@ -24,8 +24,6 @@ public class Enemy : MonoBehaviour
     // is this enemy target for tower now
     public bool IsTarget = false;
 
-    
-
     private Transform target;
     private int wavepointInxed = 0;
 
@@ -49,7 +47,7 @@ public class Enemy : MonoBehaviour
         if (towers.Count > 0 && Time.time - timeOfLastShoot > ReloadTime && !hasTarget)
         {
             //Debug.Log(towers[Random.RandomRange(0, towers.Count)]);
-            coroutine = Shoot(towers[Random.RandomRange(0, towers.Count)]);
+            coroutine = Shoot(towers[Random.Range(0, towers.Count)]);
             StartCoroutine(coroutine);
             hasTarget = true;
         }

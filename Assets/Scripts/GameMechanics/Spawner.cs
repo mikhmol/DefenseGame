@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
 
     bool CanSpawn()
     {
-        if(spawnID==-1)
+        if(spawnID == -1)
             return false;
         else
             return true;
@@ -63,7 +63,6 @@ public class Spawner : MonoBehaviour
         DeselectTowers();
     }
     
-
     public void SelectTower(int id)
     {
         DeselectTowers();
