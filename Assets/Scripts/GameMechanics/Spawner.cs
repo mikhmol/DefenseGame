@@ -7,21 +7,31 @@ using UnityEngine.UI;
 public class Spawner : MonoBehaviour
 {
     bool allowToSpawnUnits = true;
-    public SpriteRenderer testSprite;
-    [SerializeField] int TotalTowerCount;
+
+    [SerializeField] private int TotalTowerCount;
+
     //list of towers (prefabs) that will instatiate
     public List<GameObject> towersPrefabs;
+
     //Towercount for each type
     public List<int> TowerCounts;
     public List<int> CurrentTowerCounts;
-    //Transform of the spawning towers (Root Object)
-    public Transform spawnTowerRoot;
+
     //list of towers (UI)
     public List<Image> towersUI;
-    //id of tower to spawn
-    int spawnID = -1;
+
+    //Transform of the spawning towers (Root Object)
+    public Transform spawnTowerRoot;
+
     //SpawnPoints Tilemap
     public Tilemap spawnTilemap;
+
+    public SpriteRenderer testSprite;
+
+    //id of tower to spawn
+    int spawnID = -1;
+
+
     private void Start()
     {
         InGameTimers.Allow += AllowChange;

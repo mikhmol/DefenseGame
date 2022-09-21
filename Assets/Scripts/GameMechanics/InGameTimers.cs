@@ -6,18 +6,14 @@ using UnityEngine.UI;
 
 public class InGameTimers : MonoBehaviour
 {
-    // public InGameTimers Instanse { get; set; }
     public static Action<bool> Allow;
+
     public Text NextWaweCounterText;
 
     [SerializeField] private float timeCount = 12;
-    private bool startWave = false;
 
-    public bool allowToSpawnUnits = true;
-    //public bool Allow 
-    //{ 
-    //    get { return allowToSpawnUnits; } 
-    //}
+    private bool startWave = false, waveStarted = false;
+
     private void Start()
     {
         StartCoroutine(TimeUntilWave());
@@ -25,24 +21,20 @@ public class InGameTimers : MonoBehaviour
 
     private void Update()
     {
-        if (timeCount <= 0 || startWave)
+        if ((timeCount <= 0 || startWave) && !waveStarted)
         {
             StopCoroutine(TimeUntilWave());
             NextWaweCounterText.text = "00:00";
-            allowToSpawnUnits = false;
+            waveStarted = true;
             Allow?.Invoke(false);
-
         }
     }
 
-    public void FastWaveStart()
-    {
-        startWave = true;
-    }
+    public void FastWaveStart() { startWave = true; }
 
     IEnumerator TimeUntilWave()
     {
-        while (timeCount > 0)
+        while (timeCount > 0 && !startWave)
         {
             if (timeCount > 10)
             {

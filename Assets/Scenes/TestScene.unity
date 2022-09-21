@@ -7212,7 +7212,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.24313726}
+    m_HighlightedColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.29803923}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.39607844}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -17328,18 +17328,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f20d7d7f524d0f46ac74b6a476a9881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testSprite: {fileID: 0}
   TotalTowerCount: 0
   towersPrefabs:
   - {fileID: 2099079141184706892, guid: 066d39e3b4f1a1d48935d56fdae1f2cd, type: 3}
   - {fileID: 464805920825883047, guid: 7714ee8acce310045b358ea3db97aa3e, type: 3}
   TowerCounts: 0500000003000000
   CurrentTowerCounts: 
-  spawnTowerRoot: {fileID: 2135036637}
   towersUI:
   - {fileID: 1049347776}
   - {fileID: 257149417}
+  spawnTowerRoot: {fileID: 2135036637}
   spawnTilemap: {fileID: 2105887510}
+  testSprite: {fileID: 0}
 --- !u!4 &1541890252
 Transform:
   m_ObjectHideFlags: 0
@@ -17442,7 +17442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextWaweCounterText: {fileID: 1305852464}
   timeCount: 12
-  allowToSpawnUnits: 1
 --- !u!1 &1554019387
 GameObject:
   m_ObjectHideFlags: 0

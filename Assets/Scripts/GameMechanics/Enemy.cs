@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         if (towers.Count > 0 && Time.time - timeOfLastShoot > ReloadTime && !hasTarget)
         {
             //Debug.Log(towers[Random.RandomRange(0, towers.Count)]);
-            coroutine = Shoot(towers[Random.RandomRange(0, towers.Count)]);
+            coroutine = Shoot(towers[Random.Range(0, towers.Count)]);
             StartCoroutine(coroutine);
             hasTarget = true;
         }
