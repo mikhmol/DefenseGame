@@ -57,6 +57,10 @@ public class EnemySpawner : MonoBehaviour
             //Instantiate the enemy prefab
             GameObject spawnedEnemy = Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
         }
+        else if(CurrentEnemyCounts[randomPrefabID] > EnemyCounts[randomPrefabID] * 0.6)
+        {
+
+        }
         else
             SpawnEnemy();
     }
