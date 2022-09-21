@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         float timeOfLastShoot = Time.time;
         Collider.radius = Radius;
         Physics2D.IgnoreLayerCollision(7, 7);
-        //Physics2D.IgnoreLayerCollision(7, 8);
+        Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(0, 0);
         //Physics2D.IgnoreLayerCollision(0, 7);
     }
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(coroutine);
             hasTarget = true;
         }
+        /*
         if (bullets.Count > 0)
             for (int i = 0; i < bullets.Count; i++)
             {
@@ -70,6 +71,7 @@ public class Enemy : MonoBehaviour
                     bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
 
             }
+        */
     }
     private void OnDestroy()
     {
@@ -168,37 +170,34 @@ public class Enemy : MonoBehaviour
         }
         while (hp > 0)
         {
-           
-
-            if (Time.time - timeOfLastShoot > ReloadTime)
-            {
-                int amountOfBullets = 1; //Random.Range(1, 3);
-                for (int i = 0; i < amountOfBullets; i++)
+                if (Time.time - timeOfLastShoot > ReloadTime)
                 {
-                    GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-                    bullet.GetComponent<CollisionDamage>().collisionDamage = attackPower;
-                    //Debug.Log(transform.position);
-                    bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
-                    Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
-                    // LookAt 2D
-                    Vector3 target = enemy.transform.position;
-                    // get the angle
-                    Vector3 norTar = (target - transform.position).normalized;
-                    float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
-                    // rotate to angle
-                    Quaternion rotation = new Quaternion();
-                    rotation.eulerAngles = new Vector3(0, 0, angle);
-                    bullet.transform.rotation = rotation;
-                    bullets.Add(bullet);
-                    //Debug.Log("enemy shooot");
-                    yield return new WaitForSeconds(0.1f);
-                }
-                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
-                //Debug.Log("new time "+ Time.time);
-                timeOfLastShoot = Time.time;
+                    int amountOfBullets = Random.Range(3, 6);
+                    for (int i = 0; i < amountOfBullets; i++)
+                    {
+                        GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+                        bullet.GetComponent<CollisionDamage>().collisionDamage = attackPower;
+                        //Debug.Log(transform.position);
+                        bullet.GetComponent<ShootingBullet>().Target = enemy;
+                        bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                        Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
+                        // LookAt 2D
+                        Vector3 target = enemy.transform.position;
+                        // get the angle
+                        Vector3 norTar = (target - transform.position).normalized;
+                        float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+                        // rotate to angle
+                        Quaternion rotation = new Quaternion();
+                        rotation.eulerAngles = new Vector3(0, 0, angle);
+                        bullet.transform.rotation = rotation;
+                        bullets.Add(bullet);
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                    timeOfLastShoot = Time.time;
 
-            }
-            yield return null;
+                }
+                yield return null;
         }
     }
 }

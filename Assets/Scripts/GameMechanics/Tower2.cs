@@ -40,6 +40,7 @@ public class Tower2 : MonoBehaviour
     }
     private void Update()
     {
+        /*
         if (bullets.Count > 0)
             for (int i = 0; i < bullets.Count; i++)
             {
@@ -57,6 +58,7 @@ public class Tower2 : MonoBehaviour
                     bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
 
             }
+        */
         if (enemies.Count > 0 && IsAttack)
         {
             int _randomEnemyIndex = Random.Range(0, enemies.Count);
@@ -98,7 +100,7 @@ public class Tower2 : MonoBehaviour
                 GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                 bullet.GetComponent<CollisionDamage>().collisionDamage = _damage;
                 Debug.Log(transform.position);
-                bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                bullet.GetComponent<ShootingBullet>().Target = enemy;
                 Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                 // LookAt 2D
                 Vector3 target = enemy.transform.position;
