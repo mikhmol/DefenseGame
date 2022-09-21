@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
+    bool allowToSpawnUnits = true;
     public SpriteRenderer testSprite;
-
+    [SerializeField] int TotalTowerCount;
     //list of towers (prefabs) that will instatiate
     public List<GameObject> towersPrefabs;
+    //Towercount for each type
+    public List<int> TowerCounts;
+    public List<int> CurrentTowerCounts;
     //Transform of the spawning towers (Root Object)
     public Transform spawnTowerRoot;
     //list of towers (UI)
@@ -18,7 +22,16 @@ public class Spawner : MonoBehaviour
     int spawnID = -1;
     //SpawnPoints Tilemap
     public Tilemap spawnTilemap;
-
+    private void Start()
+    {
+        InGameTimers.Allow += AllowChange;
+        CurrentTowerCounts = new List<int>();
+        for (int c = 0; c < TowerCounts.Count; c++)
+        {
+            TotalTowerCount += TowerCounts[c];
+            CurrentTowerCounts.Add(0);
+        }
+    }
     void Update()
     {
         if (CanSpawn())
@@ -27,7 +40,7 @@ public class Spawner : MonoBehaviour
 
     bool CanSpawn()
     {
-        if(spawnID == -1)
+        if(spawnID==-1)
             return false;
         else
             return true;
@@ -57,19 +70,25 @@ public class Spawner : MonoBehaviour
 
     void SpawnTower(Vector3 position)
     {
-        GameObject tower = Instantiate(towersPrefabs[spawnID],spawnTowerRoot);
-        tower.transform.position = position;
+        if (allowToSpawnUnits && CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
+        {
+            CurrentTowerCounts[spawnID]++;
+            GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
+            tower.transform.position = position;
 
-        DeselectTowers();
+            DeselectTowers();
+        }
     }
     
+
     public void SelectTower(int id)
     {
         DeselectTowers();
         //set the spawn ID
         spawnID = id;
         //Highlight the tower
-        towersUI[spawnID].color = Color.grey;
+        if (CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
+            towersUI[spawnID].color = Color.grey;
 
     }
 
@@ -82,4 +101,8 @@ public class Spawner : MonoBehaviour
         }
     }
     
+    void AllowChange(bool allow)
+    {
+        allowToSpawnUnits = allow;
+    }
 }

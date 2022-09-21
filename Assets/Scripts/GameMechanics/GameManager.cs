@@ -21,4 +21,12 @@ public class GameManager : MonoBehaviour
         GetComponent<EnemySpawner>().StartSpawning();
         GetComponent<CloudSpawner>().StartSpawning();
     }
+    //bool sth(bool t)
+    //{
+    //    if(!t)
+    //    {
+    //        GetComponent<EnemySpawner>().StartSpawning();
+    //        GetComponent<CloudSpawner>().StartSpawning();
+    //    }
+    //} 
 }

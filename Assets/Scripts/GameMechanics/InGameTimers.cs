@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,17 @@ using UnityEngine.UI;
 public class InGameTimers : MonoBehaviour
 {
     // public InGameTimers Instanse { get; set; }
-
+    public static Action<bool> Allow;
     public Text NextWaweCounterText;
 
     [SerializeField] private float timeCount = 12;
     private bool startWave = false;
 
     public bool allowToSpawnUnits = true;
-
+    //public bool Allow 
+    //{ 
+    //    get { return allowToSpawnUnits; } 
+    //}
     private void Start()
     {
         StartCoroutine(TimeUntilWave());
@@ -26,6 +30,8 @@ public class InGameTimers : MonoBehaviour
             StopCoroutine(TimeUntilWave());
             NextWaweCounterText.text = "00:00";
             allowToSpawnUnits = false;
+            Allow?.Invoke(false);
+
         }
     }
 
@@ -51,5 +57,6 @@ public class InGameTimers : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
+
     }
 }

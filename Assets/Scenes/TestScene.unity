@@ -15827,7 +15827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 335.5, y: -54.6}
+  m_AnchoredPosition: {x: 335.5, y: -54.600006}
   m_SizeDelta: {x: 410.25, y: 144.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1305852463
@@ -17329,9 +17329,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testSprite: {fileID: 0}
+  TotalTowerCount: 0
   towersPrefabs:
   - {fileID: 2099079141184706892, guid: 066d39e3b4f1a1d48935d56fdae1f2cd, type: 3}
   - {fileID: 464805920825883047, guid: 7714ee8acce310045b358ea3db97aa3e, type: 3}
+  TowerCounts: 0500000003000000
+  CurrentTowerCounts: 
   spawnTowerRoot: {fileID: 2135036637}
   towersUI:
   - {fileID: 1049347776}
@@ -17364,6 +17367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cee050028ae9c4f924bb243adcd219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotalEnemyCount: 0
+  EnemyCounts: 0500000003000000
+  CurrentEnemyCounts: 
   prefabs:
   - {fileID: 6779700573257359219, guid: ec534bf07c93a0347a42dddcf9c6886d, type: 3}
   - {fileID: 5081608651580772482, guid: 40653c0c888a00741b1e8d8153f0940b, type: 3}
@@ -17435,6 +17441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextWaweCounterText: {fileID: 1305852464}
+  timeCount: 12
   allowToSpawnUnits: 1
 --- !u!1 &1554019387
 GameObject:
