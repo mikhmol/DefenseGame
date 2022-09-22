@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     public int Health { get { return _health; } }
     private void Awake()
     {
-        float timeOfLastShoot = Time.time;
+        timeOfLastShoot = Time.time;
     }
 
     private void Start()
@@ -44,25 +44,6 @@ public class Tower : MonoBehaviour
     }
     private void Update()
     {
-        /*
-        if(bullets.Count > 0)
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                var bullet = bullets[i];
-                Vector2 targetPos = bullet.GetComponent<ShootingBullet>().TargetPos;
-                if (Vector2.Distance(bullet.transform.position, targetPos) < 0.01f)
-                {
-                    Destroy(bullet);
-                    bullets.Remove(bullet);
-                    i++;
-                    if(i < bullets.Count)
-                        bullet = bullets[i];
-                }
-                if(bullet != null)
-                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
-                
-            }
-        */
         if (enemies.Count > 0 && IsAttack)
         {
             int _randomEnemyIndex = Random.Range(0, enemies.Count);

@@ -10,7 +10,7 @@ public class InGameTimers : MonoBehaviour
 
     public Text NextWaweCounterText;
 
-    [SerializeField] private float timeCount = 12;
+    [SerializeField] private float timeCount = 1;//12;
 
     private bool startWave = false, waveStarted = false;
 

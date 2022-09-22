@@ -59,7 +59,16 @@ public class EnemySpawner : MonoBehaviour
         }
         else if(CurrentEnemyCounts[randomPrefabID] > EnemyCounts[randomPrefabID] * 0.6)
         {
+            for(int c = 0; c < CurrentEnemyCounts.Count; c++)
+            {
+                if(EnemyCounts[c] - CurrentEnemyCounts[c] > 0)
+                {
+                    int randomSpawnPointID = Random.Range(0, spawnPoints.Count);
+                    //Instantiate the enemy prefab
+                    GameObject spawnedEnemy = Instantiate(prefabs[c], spawnPoints[randomSpawnPointID]);
+                }
 
+            }
         }
         else
             SpawnEnemy();
