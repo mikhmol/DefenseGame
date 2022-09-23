@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
-    bool allowToSpawnUnits = true;
+    [SerializeField]bool allowToSpawnUnits = true;
 
     [SerializeField] private int TotalTowerCount;
 

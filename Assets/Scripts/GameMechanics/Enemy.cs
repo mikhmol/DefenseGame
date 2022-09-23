@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < bullets.Count; i++)
             {
                 var bullet = bullets[i];
-                Vector2 targetPos = bullet.GetComponent<ShootingBullet>().TargetPos;
+                Vector2 targetPos = bullet.GetComponent<Bullet>().TargetPos;
                 if (Vector2.Distance(bullet.transform.position, targetPos) < 0.01f)
                 {
                     Destroy(bullet);
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
                         bullet = bullets[i];
                 }
                 if (bullet != null)
-                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<Bullet>().Speed * Time.deltaTime);
 
             }
         */
@@ -183,11 +183,13 @@ public class Enemy : MonoBehaviour
                     int amountOfBullets = Random.Range(3, 6);
                     for (int i = 0; i < amountOfBullets; i++)
                     {
+                        
+
                         GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                         bullet.GetComponent<CollisionDamage>().collisionDamage = attackPower;
                         //Debug.Log(transform.position);
-                        bullet.GetComponent<ShootingBullet>().Target = enemy;
-                        bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                        ////bullet.GetComponent<Bullet>().Target = enemy;
+                        ////bullet.GetComponent<Bullet>().TargetPos = enemy.transform.position;
                         Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                         // LookAt 2D
                         Vector3 target = enemy.transform.position;
@@ -201,7 +203,7 @@ public class Enemy : MonoBehaviour
                         bullets.Add(bullet);
                         yield return new WaitForSeconds(0.1f);
                     }
-                    //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                    //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<Bullet>().Speed * Time.deltaTime);
                     timeOfLastShoot = Time.time;
 
                 }

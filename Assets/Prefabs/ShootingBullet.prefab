@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2396567536013279060}
   - component: {fileID: 8622268048981576055}
-  - component: {fileID: 3045852406327146467}
-  - component: {fileID: -7690211464812013950}
+  - component: {fileID: 3907428024319728565}
   - component: {fileID: -8254001565511289617}
   - component: {fileID: 8763807127517865114}
   - component: {fileID: 641898629045492627}
@@ -89,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3045852406327146467
+--- !u!114 &3907428024319728565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,24 +97,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1433131217600347588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d502ef4d21bfdba4085a5ad4733e50fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 10ae3a32b2ce511439dc8686e3ec3f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 10
---- !u!114 &-7690211464812013950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433131217600347588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406b92bb431d90e4cab823345bfbc006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDamage: 40
-  collisionTag: isEnemy
+  _speed: 3
+  _damage: 3
+  _targetPosition: {x: 0, y: 0}
 --- !u!114 &-8254001565511289617
 MonoBehaviour:
   m_ObjectHideFlags: 0

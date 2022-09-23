@@ -45,7 +45,7 @@ public class Tower2 : MonoBehaviour
             for (int i = 0; i < bullets.Count; i++)
             {
                 var bullet = bullets[i];
-                Vector2 targetPos = bullet.GetComponent<ShootingBullet>().TargetPos;
+                Vector2 targetPos = bullet.GetComponent<Bullet>().TargetPos;
                 if (Vector2.Distance(bullet.transform.position, targetPos) < 0.01f)
                 {
                     Destroy(bullet);
@@ -55,7 +55,7 @@ public class Tower2 : MonoBehaviour
                         bullet = bullets[i];
                 }
                 if (bullet != null)
-                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                    bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, targetPos, BulletPrefab.GetComponent<Bullet>().Speed * Time.deltaTime);
 
             }
         */
@@ -100,7 +100,7 @@ public class Tower2 : MonoBehaviour
                 GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                 bullet.GetComponent<CollisionDamage>().collisionDamage = _damage;
                 Debug.Log(transform.position);
-                bullet.GetComponent<ShootingBullet>().Target = enemy;
+                //bullet.GetComponent<Bullet>().Target = enemy;
                 Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                 // LookAt 2D
                 Vector3 target = enemy.transform.position;
@@ -112,7 +112,7 @@ public class Tower2 : MonoBehaviour
                 rotation.eulerAngles = new Vector3(0, 0, angle);
                 bullet.transform.rotation = rotation;
                 bullets.Add(bullet);
-                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<Bullet>().Speed * Time.deltaTime);
                 timeOfLastShoot = Time.time;
             }
             yield return null;

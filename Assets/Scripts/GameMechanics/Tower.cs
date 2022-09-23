@@ -100,8 +100,8 @@ public class Tower : MonoBehaviour
                     GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                     bullet.GetComponent<CollisionDamage>().collisionDamage = _damage;
                     //Debug.Log(transform.position);
-                    bullet.GetComponent<ShootingBullet>().Target = enemy;
-                    bullet.GetComponent<ShootingBullet>().TargetPos = enemy.transform.position;
+                    ////bullet.GetComponent<Bullet>().Target = enemy;
+                    ////bullet.GetComponent<Bullet>().TargetPos = enemy.transform.position;
                     Physics2D.IgnoreCollision(bullet.GetComponent<CapsuleCollider2D>(), GetComponent<BoxCollider2D>());
                     // LookAt 2D
                     Vector3 target = enemy.transform.position;
@@ -115,7 +115,7 @@ public class Tower : MonoBehaviour
                     bullets.Add(bullet);
                     yield return new WaitForSeconds(0.1f);
                 }
-                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<ShootingBullet>().Speed * Time.deltaTime);
+                //bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, enemy.transform.position, BulletPrefab.GetComponent<Bullet>().Speed * Time.deltaTime);
                 timeOfLastShoot = Time.time;
 
             }

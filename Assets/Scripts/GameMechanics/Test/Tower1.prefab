@@ -101,8 +101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29028220cf801040bb308ae729437eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
+  bulletPrefab: {fileID: 1433131217600347588, guid: a1e11ecf29c967f4ba29551b3441e6a2, type: 3}
+  bulletController: {fileID: 0}
+  health: 20
+  damage: 1
+  damageOnUnit: 0
+  damageOnMachine: 0
+  speed: 5
+  viewRadius: 3
+  reloadTime: 2
 --- !u!50 &8795405648110539542
 Rigidbody2D:
   serializedVersion: 4
