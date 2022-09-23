@@ -3,11 +3,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CommonUnitsLogic : MonoBehaviour
+public abstract class CommonUnitsLogic : MonoBehaviour
 {
+    [SerializeField] protected int health;
+    [SerializeField] protected int damage;
+
+
+
+    protected List<GameObject> unitsList = new List<GameObject>();
+
+    protected void Start()
+    {
+        Physics2D.IgnoreLayerCollision(8, 8);
+        Physics2D.IgnoreLayerCollision(9, 9);
+        Physics2D.IgnoreLayerCollision(10, 10);
+    }
+    protected virtual void Update()
+    {
+        if(unitsList.Count > 0)
+        {
+
+            Debug.Log("i shoot " + tag);
+        }
+    }
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        switch(tag)
+        {
+            case "isUnit":  //for unit
+                if (other.tag == "isEnemy")
+                {
+                    // other.gameObject - body of unit
+                    unitsList.Add(other.gameObject);
+                    Debug.Log("isEnemy");
+                    //UnitDestroy();
+                }
+                break;
+            case "isEnemy": // for enemy
+                if (other.tag == "isUnit")
+                {
+                    unitsList.Add(other.gameObject);
+                    Debug.Log("isUnit");
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    protected virtual void OnTriggerExit2D(Collider2D other)
+    {
+        switch (tag)
+        {
+            case "isUnit": //for unit
+                if (other.tag == "isEnemy")
+                {
+                    // other.gameObject - body of unit
+                    UnitRemove(other.gameObject);
+                    Debug.Log("isEnemy exit");
+                }
+                break;
+            case "isEnemy": // for enemy
+                if (other.tag == "Finish")
+                {
+                    SceneManager.LoadScene(0);
+                }
+                if (other.tag == "isUnit")
+                {
+                    UnitRemove(other.gameObject);
+                    Debug.Log("isUnit exit");
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    protected void Shoot()
+    {
+
+    }
+    protected void UnitDestroy(GameObject body)
+    {
+        // insted of unitsList[0] must be unit`s body 
+        // body is unit`s body 
+        Destroy(body.transform.parent.gameObject);
+        UnitRemove(body);
+    }
+    protected void UnitRemove(GameObject body)
+    {
+        // body is unit`s body
+        unitsList.Remove(body);
+        Debug.Log("Unit removed");
+    }
+
+    /*
     bool hasTarget = false;
     //Health, Attack Power, MoveSpeed
-    [SerializeField] public int health;
+    [SerializeField] public int Health;
     [SerializeField] float moveSpeed = 1.5f;
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] int attackPower;
@@ -69,12 +160,31 @@ public class CommonUnitsLogic : MonoBehaviour
         Debug.Log(other.tag);
         
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        //Debug.Log(collision.tag);
-        if (collision.gameObject.tag == "isUnit")
+        switch (gameObject.tag) // tag of enemy or unit
         {
-            towers.Remove(collision.gameObject);
+            case "isUnit":
+                if (other.gameObject.tag == "isEnemy")
+                {
+                    towers.Remove(other.gameObject);
+                    StopCoroutine(coroutine);
+                    hasTarget = false;
+                }
+                break;
+            case "isEnemy":
+                if (other.gameObject.tag == "isUnit")
+                {
+                    towers.Remove(other.gameObject);
+                    StopCoroutine(coroutine);
+                    hasTarget = false;
+                }
+                break;
+        }
+        //Debug.Log(collision.tag);
+        if (other.gameObject.tag == "isUnit")
+        {
+            towers.Remove(other.gameObject);
             StopCoroutine(coroutine);
             hasTarget = false;
         }
@@ -120,7 +230,8 @@ public class CommonUnitsLogic : MonoBehaviour
     }
     IEnumerator Shoot(GameObject enemy)
     {
-        int hp = 0;
+        
+        int hp = 2;
         try
         {
             hp = enemy.GetComponent<Tower2>().Health;
@@ -133,7 +244,14 @@ public class CommonUnitsLogic : MonoBehaviour
             }
             catch (System.Exception)
             {
+                try
+                {
+                    hp = enemy.GetComponent<Enemy>().health;
+                }
+                catch (System.Exception)
+                {
 
+                }
             }
         }
         while (hp > 0)
@@ -169,4 +287,5 @@ public class CommonUnitsLogic : MonoBehaviour
             yield return null;
         }
     }
+    */
 }

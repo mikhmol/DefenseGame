@@ -31,11 +31,11 @@ public class Tower : MonoBehaviour
         Collider.radius = Radius;
         enemies = new List<GameObject>();
         bullets = new List<GameObject>();
-        Physics2D.IgnoreLayerCollision(7, 7);
-        Physics2D.IgnoreLayerCollision(8, 8);
-        Physics2D.IgnoreLayerCollision(0, 0);
-        Physics2D.IgnoreLayerCollision(0, 8);
-        Physics2D.IgnoreLayerCollision(8, 7);
+        //Physics2D.IgnoreLayerCollision(7, 7);
+        //Physics2D.IgnoreLayerCollision(8, 8);
+        //Physics2D.IgnoreLayerCollision(0, 0);
+        //Physics2D.IgnoreLayerCollision(0, 8);
+        //Physics2D.IgnoreLayerCollision(8, 7);
         Attack.action += StartShoot;
     }
     private void OnDestroy()

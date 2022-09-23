@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     bool hasTarget = false;
     //Health, Attack Power, MoveSpeed
-    //public int health;
+    public int health = 5;
     [SerializeField] float moveSpeed = 1.5f;
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] int attackPower;
@@ -37,9 +37,9 @@ public class Enemy : MonoBehaviour
         target = Waypoints.waypoints[0];
         float timeOfLastShoot = Time.time;
         Collider.radius = Radius;
-        Physics2D.IgnoreLayerCollision(7, 7);
-        Physics2D.IgnoreLayerCollision(8, 8);
-        Physics2D.IgnoreLayerCollision(0, 0);
+        //Physics2D.IgnoreLayerCollision(7, 7);
+        //Physics2D.IgnoreLayerCollision(8, 8);
+        //Physics2D.IgnoreLayerCollision(0, 0);
         //Physics2D.IgnoreLayerCollision(0, 7);
     }
 
@@ -164,8 +164,16 @@ public class Enemy : MonoBehaviour
                 hp = enemy.GetComponent<Tower>().Health;
             }
             catch(System.Exception)
-            {
+            {/*
+                try
+                {
+                    hp = enemy.GetComponent<TestTower>().Health;
+                }
+                catch (System.Exception)
+                {
 
+                }
+                */
             }
         }
         while (hp > 0)
