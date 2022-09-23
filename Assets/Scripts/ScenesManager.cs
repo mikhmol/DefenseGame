@@ -40,4 +40,10 @@ public class ScenesManager : MonoBehaviour
     {
 
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting the game...");
+        Application.Quit();
+    }
 }
