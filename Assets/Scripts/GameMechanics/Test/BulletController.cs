@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public List<Bullet> bullets = new List<Bullet>();
+    static public List<Bullet> bullets = new List<Bullet>();
     
     List<Bullet> bulletsToDestroy = new List<Bullet>();
     // Update is called once per frame

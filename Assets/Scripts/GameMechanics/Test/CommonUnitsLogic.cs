@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public abstract class CommonUnitsLogic : MonoBehaviour
 {
     [SerializeField] protected GameObject bulletPrefab;
-    /*[SerializeField]*/ protected BulletController bulletController;
-    [SerializeField] protected GameObject bulletControllerToGet;
+    [SerializeField] protected BulletController bulletController;
 
     [SerializeField] protected int health;
     [SerializeField] protected int damage;
@@ -126,7 +125,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 bullet.GetComponent<Bullet>().Damage = damage;
                 //bullet.transform.parent = transform; // made unit parant of bullet
                 Physics2D.IgnoreCollision(gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>(), bullet.GetComponent<CapsuleCollider2D>());
-                bulletController.bullets.Add(bullet.GetComponent<Bullet>()); // add bullet to bullet controller
+                BulletController.bullets.Add(bullet.GetComponent<Bullet>()); // add bullet to bullet controller
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(reloadTime);
