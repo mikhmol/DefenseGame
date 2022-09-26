@@ -6,6 +6,7 @@ TagManager:
   tags:
   - isUnit
   - isEnemy
+  - bgMusic
   layers:
   - Default
   - TransparentFX

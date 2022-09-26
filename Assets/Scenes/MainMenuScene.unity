@@ -3647,7 +3647,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &685509277
 MonoBehaviour:
@@ -5023,7 +5023,7 @@ Transform:
   - {fileID: 37149796}
   - {fileID: 243741438}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920447888
 GameObject:
@@ -6820,7 +6820,7 @@ RectTransform:
   - {fileID: 1037072250}
   - {fileID: 82909795}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7104,7 +7104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243569493}
   m_LocalRotation: {x: -0, y: -0, z: 0.54945904, w: 0.83552074}
-  m_LocalPosition: {x: 6.9699965, y: 10.880006, z: 5.410194}
+  m_LocalPosition: {x: 7.18, y: 12.05, z: 5.410194}
   m_LocalScale: {x: 0.44315004, y: 0.44315004, z: 0.44315}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8646,7 +8646,7 @@ RectTransform:
   m_Children:
   - {fileID: 43925833}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9703,7 +9703,7 @@ GameObject:
   - component: {fileID: 1818590529}
   m_Layer: 0
   m_Name: BackgroundAudio
-  m_TagString: Untagged
+  m_TagString: bgMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9718,7 +9718,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b44fbc44bf6057445ac9f6fdaec97329, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a820f2724cd39f847a020d51f7f40e55, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.019
   m_Pitch: 1
@@ -9817,7 +9817,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1818590529
 MonoBehaviour:
@@ -9831,7 +9831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9134036ca5f02c24b91b73fec80bfe44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundAudio: {fileID: 1818590526}
 --- !u!1 &1837531465
 GameObject:
   m_ObjectHideFlags: 0

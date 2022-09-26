@@ -99,7 +99,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
     {
         if (unitsList.Count > 0 && Time.time - timeOfLastShoot > reloadTime && !hasTarget)
         {
-            shootCoroutine = Shoot(unitsList[Random.RandomRange(0, unitsList.Count)].transform.parent.gameObject);
+            shootCoroutine = Shoot(unitsList[Random.Range(0, unitsList.Count)].transform.parent.gameObject);
             StartCoroutine(shootCoroutine);
             hasTarget = true;
         }
