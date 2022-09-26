@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         InGameTimers.Allow += AllowChange;
 
-        GetComponent<HealthSystem>().Init();
+        //GetComponent<HealthSystem>().Init();
         //StartCoroutine(WaveStartDelay());
     }
 

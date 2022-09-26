@@ -13,7 +13,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
 
     // add later
     [SerializeField] int damageOnUnit;
-    [SerializeField] int damageOnMachine;
+    [SerializeField] int damageOnTechnic;
 
     [SerializeField] protected float speed;
     [SerializeField] protected float viewRadius;
@@ -44,7 +44,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
     }
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        switch(tag)
+        switch(gameObject.transform.GetChild(0).tag)
         {
             case "isUnit":  //for unit
                 if (other.tag == "isEnemy")
@@ -68,7 +68,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
     }
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        switch (tag)
+        switch (gameObject.transform.GetChild(0).tag)
         {
             case "isUnit": //for unit
                 if (other.tag == "isEnemy")
@@ -123,10 +123,13 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
                 bullet.GetComponent<Bullet>().TargetPosition = oppositeUnit.transform.position;
                 bullet.GetComponent<Bullet>().Damage = damage;
+                bullet.GetComponent<Bullet>().DamageOnUnit = damageOnUnit;
+                bullet.GetComponent<Bullet>().DamageOnTechnic = damageOnTechnic;
                 //bullet.transform.parent = transform; // made unit parant of bullet
                 Physics2D.IgnoreCollision(gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>(), bullet.GetComponent<CapsuleCollider2D>());
                 BulletController.bullets.Add(bullet.GetComponent<Bullet>()); // add bullet to bullet controller
                 yield return new WaitForSeconds(0.1f);
+                timeOfLastShoot = Time.time;
             }
             yield return new WaitForSeconds(reloadTime);
             timeOfLastShoot = Time.time;

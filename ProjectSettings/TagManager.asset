@@ -7,6 +7,8 @@ TagManager:
   - isUnit
   - isEnemy
   - bgMusic
+  - Unit
+  - Technic
   layers:
   - Default
   - TransparentFX
