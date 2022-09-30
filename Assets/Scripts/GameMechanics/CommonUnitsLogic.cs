@@ -27,9 +27,11 @@ public abstract class CommonUnitsLogic : MonoBehaviour
 
     protected IEnumerator shootCoroutine;
 
-    
+
 
     protected List<GameObject> unitsList = new List<GameObject>();
+
+    public int Health { get => health; }
 
     protected void Start()
     {
@@ -84,7 +86,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
             case "isEnemy": // for enemy
                 if (other.tag == "Finish")
                 {
-                    SceneManager.LoadScene(0);
+                    //SceneManager.LoadScene(0);
                 }
                 if (other.tag == "isUnit")
                 {
@@ -97,7 +99,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 break;
         }
     }
-    protected void CheckShoot()
+    protected virtual void CheckShoot()
     {
         if (unitsList.Count > 0 && Time.time - timeOfLastShoot > reloadTime && !hasTarget)
         {
@@ -106,7 +108,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
             hasTarget = true;
         }
     }
-    IEnumerator Shoot(GameObject oppositeUnit)
+    protected virtual IEnumerator Shoot(GameObject oppositeUnit)
     {
         // oppositeUnit - game object of unit 
         while (oppositeUnit.GetComponent<CommonUnitsLogic>().health > 0)
@@ -135,8 +137,12 @@ public abstract class CommonUnitsLogic : MonoBehaviour
             }
             yield return new WaitForSeconds(reloadTime);
             timeOfLastShoot = Time.time;
+            
         }
+
+        
     }
+    
     protected void StopShoot()
     {
         StopCoroutine(shootCoroutine);
