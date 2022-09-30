@@ -103,13 +103,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1433131217600347588, guid: a1e11ecf29c967f4ba29551b3441e6a2, type: 3}
   bulletController: {fileID: 0}
-  health: 20
+  health: 1000
   damage: 1
-  damageOnUnit: 0
-  damageOnTechnic: 0
+  minNumberOfBulletsPerShoot: 1
+  maxNumberOfBulletsPerShoot: 1
+  damageOnUnit: 50
+  damageOnTechnic: 400
   speed: 5
-  viewRadius: 3
-  reloadTime: 2
+  viewRadius: 5
+  reloadTime: 4
 --- !u!50 &8795405648110539542
 Rigidbody2D:
   serializedVersion: 4

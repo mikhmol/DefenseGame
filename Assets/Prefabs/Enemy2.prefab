@@ -102,10 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1433131217600347588, guid: a1e11ecf29c967f4ba29551b3441e6a2, type: 3}
   bulletController: {fileID: 0}
-  health: 20
+  health: 100
   damage: 1
-  damageOnUnit: 0
-  damageOnTechnic: 0
+  minNumberOfBulletsPerShoot: 3
+  maxNumberOfBulletsPerShoot: 6
+  damageOnUnit: 3
+  damageOnTechnic: 1
   speed: 5
   viewRadius: 3
   reloadTime: 3

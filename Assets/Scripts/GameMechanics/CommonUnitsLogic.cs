@@ -12,8 +12,10 @@ public abstract class CommonUnitsLogic : MonoBehaviour
     [SerializeField] protected int damage;
 
     // add later
-    [SerializeField] int damageOnUnit;
-    [SerializeField] int damageOnTechnic;
+    [SerializeField] protected int minNumberOfBulletsPerShoot;
+    [SerializeField] protected int maxNumberOfBulletsPerShoot;
+    [SerializeField] protected int damageOnUnit;
+    [SerializeField] protected int damageOnTechnic;
 
     [SerializeField] protected float speed;
     [SerializeField] protected float viewRadius;
@@ -109,7 +111,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
         // oppositeUnit - game object of unit 
         while (oppositeUnit.GetComponent<CommonUnitsLogic>().health > 0)
         {
-            int amountOfBullets = Random.Range(3, 6);
+            int amountOfBullets = Random.Range(minNumberOfBulletsPerShoot, maxNumberOfBulletsPerShoot);
             for (int i = 0; i < amountOfBullets; i++)
             {
                 // LookAt 2D

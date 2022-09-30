@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Tower : CommonUnitsLogic
 {
+
+    void FindPath()
+    {
+
+    }
     /*
     protected override void OnTriggerEnter2D(Collider2D other)
     {
