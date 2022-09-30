@@ -80,7 +80,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnTower(Vector3 position)
     {
-        if (/*allowToSpawnUnits &&*/ CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
+        if (allowToSpawnUnits && CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
         {
             CurrentTowerCounts[spawnID]++;
             GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);

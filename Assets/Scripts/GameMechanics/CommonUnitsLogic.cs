@@ -33,10 +33,13 @@ public abstract class CommonUnitsLogic : MonoBehaviour
 
     public int Health { get => health; }
 
-    protected void Start()
+    protected  void Start()
     {
         timeOfLastShoot = Time.time;
-        gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().radius = viewRadius;
+        var view = gameObject.transform.GetComponentInChildren<CircleCollider2D>();
+        if(view != null)
+            view.radius = viewRadius;
+        //gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().radius = viewRadius;
         Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(9, 9);
         Physics2D.IgnoreLayerCollision(10, 10);
@@ -86,7 +89,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
             case "isEnemy": // for enemy
                 if (other.tag == "Finish")
                 {
-                    //SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(0);
                 }
                 if (other.tag == "isUnit")
                 {
@@ -125,10 +128,17 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 rotation.eulerAngles = new Vector3(0, 0, angle);
 
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
+                Bullet bulletscr = bullet.GetComponent<Bullet>();
+                bulletscr.TargetPosition = oppositeUnit.transform.position;
+                bulletscr.Damage = damage;
+                bulletscr.DamageOnUnit = damageOnUnit;
+                bulletscr.DamageOnTechnic = damageOnTechnic;
+                /*
                 bullet.GetComponent<Bullet>().TargetPosition = oppositeUnit.transform.position;
                 bullet.GetComponent<Bullet>().Damage = damage;
                 bullet.GetComponent<Bullet>().DamageOnUnit = damageOnUnit;
                 bullet.GetComponent<Bullet>().DamageOnTechnic = damageOnTechnic;
+                */
                 //bullet.transform.parent = transform; // made unit parant of bullet
                 Physics2D.IgnoreCollision(gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>(), bullet.GetComponent<CapsuleCollider2D>());
                 BulletController.bullets.Add(bullet.GetComponent<Bullet>()); // add bullet to bullet controller
@@ -145,7 +155,8 @@ public abstract class CommonUnitsLogic : MonoBehaviour
     
     protected void StopShoot()
     {
-        StopCoroutine(shootCoroutine);
+        if(shootCoroutine != null)
+            StopCoroutine(shootCoroutine);
         hasTarget = false;
     }
 
