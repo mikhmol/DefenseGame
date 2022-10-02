@@ -78,10 +78,14 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void SpawnTower(Vector3 position)
+    void SpawnTower(Vector2 position)
     {
         if (allowToSpawnUnits && CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
         {
+            /*
+            if(bayracter)
+                bayrcter.PostoRich = new Vector2(position.x, 7.5)
+            */
             CurrentTowerCounts[spawnID]++;
             GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
             tower.transform.position = position;

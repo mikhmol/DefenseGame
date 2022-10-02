@@ -114,7 +114,7 @@ MonoBehaviour:
   reloadTime: 5
   countBuletsForShoot: 2
   shootedBullets: 0
-  positionToReach: {x: -4, y: 6}
+  positionToReach: {x: 0, y: 7.5}
 --- !u!50 &8795405648110539542
 Rigidbody2D:
   serializedVersion: 4

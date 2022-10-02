@@ -9,6 +9,8 @@ public class Bayraktar : CommonUnitsLogic
     [SerializeField] int shootedBullets;
     [SerializeField] Vector2 positionToReach;
     
+    public Vector2 PositionToReach { get { return positionToReach; } set { positionToReach = value; } }
+
     protected override void CheckShoot()
     {
         if (Vector2.Distance(transform.position, positionToReach) < 0.1f)
