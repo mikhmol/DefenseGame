@@ -7,9 +7,15 @@ public class Bayraktar : CommonUnitsLogic
 {
     [SerializeField] int countBuletsForShoot;
     [SerializeField] int shootedBullets;
-    [SerializeField] Vector2 positionToReach;
+    [SerializeField] Vector3 positionToReach;
     
-    public Vector2 PositionToReach { get { return positionToReach; } set { positionToReach = value; } }
+    public Vector3 PositionToReach { get { return positionToReach; } set { positionToReach = value; } }
+
+    protected override void Start()
+    {
+        base.Start();
+        transform.DOMove(positionToReach, Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
+    }
 
     protected override void CheckShoot()
     {

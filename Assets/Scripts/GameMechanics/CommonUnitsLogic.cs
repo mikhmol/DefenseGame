@@ -33,7 +33,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
 
     public int Health { get => health; }
 
-    protected  void Start()
+    protected virtual void Start()
     {
         timeOfLastShoot = Time.time;
         var view = gameObject.transform.GetComponentInChildren<CircleCollider2D>();

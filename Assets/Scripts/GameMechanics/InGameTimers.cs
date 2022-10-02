@@ -16,7 +16,7 @@ public class InGameTimers : MonoBehaviour
 
     private void Awake()
     {
-        timeCount = 1f; // there have to be 30
+        timeCount = 30f; // there have to be 30
     }
 
     private void Start()
