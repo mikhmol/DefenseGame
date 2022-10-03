@@ -17190,7 +17190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextWaweCounterText: {fileID: 1305852464}
-  timeCount: 30
+  timeCount: 1
 --- !u!114 &1541890258
 MonoBehaviour:
   m_ObjectHideFlags: 0

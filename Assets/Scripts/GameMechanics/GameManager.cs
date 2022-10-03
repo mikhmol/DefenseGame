@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public static bool isAttack = false;
     void Awake() { instance = this; }
 
     void Start()
     {
+        Attack.attack += AttackChange;
+;
         InGameTimers.Allow += AllowChange;
 
         //GetComponent<HealthSystem>().Init();
@@ -24,7 +26,10 @@ public class GameManager : MonoBehaviour
         GetComponent<EnemySpawner>().StartSpawning();
         GetComponent<CloudSpawner>().StartSpawning();
     }*/
-
+    void AttackChange(bool attack)
+    {
+        isAttack = attack;
+    }
     void AllowChange(bool allow)
     {
         if (!allow)

@@ -108,9 +108,11 @@ MonoBehaviour:
   maxNumberOfBulletsPerShoot: 6
   damageOnUnit: 3
   damageOnTechnic: 1
-  speed: 5
+  speed: 1
   viewRadius: 3
   reloadTime: 3
+  stanTime: 1
+  XPositionOfLevelEnd: -16
 --- !u!50 &1779653697
 Rigidbody2D:
   serializedVersion: 4

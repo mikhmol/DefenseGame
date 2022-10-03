@@ -89,7 +89,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
             case "isEnemy": // for enemy
                 if (other.tag == "Finish")
                 {
-                    SceneManager.LoadScene(0);
+                    //SceneManager.LoadScene(0);
                 }
                 if (other.tag == "isUnit")
                 {

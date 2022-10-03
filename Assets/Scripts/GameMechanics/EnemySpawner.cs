@@ -37,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
         while (t < TotalEnemyCount)
         {
             //Call the spawn method
-            SpawnEnemy();
+            t += SpawnEnemy();
+            Debug.Log(t);
             //Wait spawn interval
             yield return new WaitForSeconds(spawnInterval);
             //Recall the same coroutine
@@ -45,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    int SpawnEnemy()
     {
         //Randomize the enemy spawned
         int randomPrefabID = Random.Range(0,prefabs.Count);
@@ -72,5 +73,6 @@ public class EnemySpawner : MonoBehaviour
         }
         else
             SpawnEnemy();
+        return 1;
     }
 }
