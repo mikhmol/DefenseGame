@@ -49,7 +49,7 @@ public class Enemy : CommonUnitsLogic
         {
             for(int y = -2; y < 3; y++)
             {
-                int safe = Random.RandomRange(0, 4);
+                int safe = Random.Range(0, 4);
                 if (safe > safetyIndex) // insted random get safety index of tile
                 {
                     safetyIndex = safe;

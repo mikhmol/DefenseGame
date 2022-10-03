@@ -5,17 +5,39 @@ using UnityEngine;
 
 public class Bayraktar : CommonUnitsLogic
 {
-    [SerializeField] int countBuletsForShoot;
-    [SerializeField] int shootedBullets;
+    [SerializeField] int countBuletsForShoot, shootedBullets;
+    [SerializeField] float targetPosY;
     [SerializeField] Vector3 positionToReach;
-    
+
     public Vector3 PositionToReach { get { return positionToReach; } set { positionToReach = value; } }
 
     protected override void Start()
     {
         base.Start();
+        targetPosY = transform.position.y;
+        StartCoroutine(BayraktarIdle());
         //transform.DOMove(positionToReach, Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
         transform.DOJump(positionToReach, 0.05f, (int)(Mathf.Abs(transform.position.x - positionToReach.x) / speed), Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
+    }
+
+    // коливання байрактару (на місці)
+    IEnumerator BayraktarIdle()
+    {
+        int dir = 1;
+        while (true)
+        {
+            if (transform.position.y - targetPosY > 0.05f)
+            {
+                dir = -1;
+            }
+            else if (transform.position.y - targetPosY < -0.05f)
+            {
+                dir = 1;
+            }
+
+            transform.position += new Vector3(0, 0.005f * dir, 0);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     protected override void CheckShoot()
