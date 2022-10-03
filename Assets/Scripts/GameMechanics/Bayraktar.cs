@@ -14,7 +14,8 @@ public class Bayraktar : CommonUnitsLogic
     protected override void Start()
     {
         base.Start();
-        transform.DOMove(positionToReach, Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
+        //transform.DOMove(positionToReach, Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
+        transform.DOJump(positionToReach, 0.05f, (int)(Mathf.Abs(transform.position.x - positionToReach.x) / speed), Mathf.Abs(transform.position.x - positionToReach.x) / speed).SetEase(Ease.OutSine);
     }
 
     protected override void CheckShoot()
