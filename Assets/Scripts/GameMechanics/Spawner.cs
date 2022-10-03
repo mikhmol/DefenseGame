@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
+public class Supporter 
+{
+    public List<List<int>> SupportList = new List<List<int>>();
+}
+
 public class Spawner : MonoBehaviour
 {
     [SerializeField]bool allowToSpawnUnits = true;
