@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class InGameTimers : MonoBehaviour
 {
-    public static Action<bool> Allow;
+    // call Support action and Allow action
+    public static Action<bool> Allow, Support;
 
+    // text fields
     public Text NextWaweCounterText;
+    public GameObject SupportHasArrived;
 
+    // variable to track time
     [SerializeField] private float timeCount;
 
     private bool startWave = false, waveStarted = false;
@@ -21,11 +25,14 @@ public class InGameTimers : MonoBehaviour
 
     private void Start()
     {
+        // starting two timers (one of them is visible)
         StartCoroutine(TimeUntilWave());
+        StartCoroutine(TimeUntilSupport());
     }
 
     private void Update()
     {
+        // visible timer until wave start
         if ((timeCount <= 0 || startWave) && !waveStarted)
         {
             StopCoroutine(TimeUntilWave());
@@ -35,8 +42,25 @@ public class InGameTimers : MonoBehaviour
         }
     }
 
-    public void FastWaveStart() { startWave = true; }
+    // invisible timer until random pack of support
+    IEnumerator TimeUntilSupport()
+    {
+        while (true)
+        {
+            if (Time.time > timeCount + 30f) // timer after wave started(there have to be 30f)
+            {
+                yield return new WaitForSeconds(UnityEngine.Random.Range(60, 121)); // random 1-2 mins time before support will arrive
 
+                Support?.Invoke(true);
+
+                StartCoroutine(SupportHasArrivedText());
+            }
+
+            yield return null;
+        }
+    }
+
+    // timer until wave logic
     IEnumerator TimeUntilWave()
     {
         while (timeCount > 0 && !startWave)
@@ -54,6 +78,13 @@ public class InGameTimers : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
+    }
 
+    // info "Support has arrived!" text appears 
+    IEnumerator SupportHasArrivedText()
+    {
+        SupportHasArrived.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SupportHasArrived.SetActive(false);
     }
 }

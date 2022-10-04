@@ -4,9 +4,28 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
-public class Supporter 
+public class Supporter
 {
-    public List<List<int>> SupportList = new List<List<int>>();
+    /*List<int> type1 = new List<int> { 0, 0, 0, 0 };
+    List<int> type2 = new List<int> { 0, 0, 0, 0 };
+    List<int> type3 = new List<int> { 0, 0, 0, 0 };
+    List<int> type4 = new List<int> { 0, 0, 0, 0 };*/
+
+    /*void Start()
+    {
+        SupportList.Add(type1);
+        SupportList.Add(type2);
+        SupportList.Add(type3);
+        SupportList.Add(type4);
+    }*/
+
+    public static List<List<int>> SupportList = new List<List<int>>
+    { 
+        new List<int> { 1, 0, 0, 0 }, 
+        new List<int> { 0, 1, 0, 0 }, 
+        new List<int> { 0, 0, 1, 0 }, 
+        new List<int> { 0, 0, 0, 1 }, 
+    };
 }
 
 public class Spawner : MonoBehaviour
@@ -41,6 +60,8 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        InGameTimers.Support += GetSupport;
+
         InGameTimers.Allow += AllowChange;
         CurrentTowerCounts = new List<int>();
         for (int c = 0; c < TowerCounts.Count; c++)
@@ -61,6 +82,18 @@ public class Spawner : MonoBehaviour
             return false;
         else
             return true;
+    }
+
+    public void GetSupport(bool param)
+    {
+        List<int> randomSupportList = Supporter.SupportList[Random.Range(0, Supporter.SupportList.Count)];
+
+        for (int i = 0; i < randomSupportList.Count; i++)
+        {
+            TowerCounts[i] += randomSupportList[i];
+        }
+
+        AllowChange(true);
     }
 
     void DetectSpawnPoint()
