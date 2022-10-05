@@ -6,19 +6,7 @@ using UnityEngine.UI;
 
 public class Supporter
 {
-    /*List<int> type1 = new List<int> { 0, 0, 0, 0 };
-    List<int> type2 = new List<int> { 0, 0, 0, 0 };
-    List<int> type3 = new List<int> { 0, 0, 0, 0 };
-    List<int> type4 = new List<int> { 0, 0, 0, 0 };*/
-
-    /*void Start()
-    {
-        SupportList.Add(type1);
-        SupportList.Add(type2);
-        SupportList.Add(type3);
-        SupportList.Add(type4);
-    }*/
-
+    // list of lists of different help sets
     public static List<List<int>> SupportList = new List<List<int>>
     { 
         new List<int> { 1, 0, 0, 0 }, 
@@ -58,11 +46,46 @@ public class Spawner : MonoBehaviour
     //bayraktar "y" position (height)
     float heightOfFlight = 6.14f;
 
+    /*void TestFunction()
+    {
+        // x = -13.5   y = 4.5   centre of the left right cell
+        int height = 10, width = 20;
+        Vector2[,] tileMapArray = new Vector2[height, width];
+
+        // fill array with cells centres positions
+        for(int i = 0; i< height; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                tileMapArray[i, j] = new Vector2(-13.5f + j, 4.5f - i);
+            }
+        }
+
+        // debug array into cosole (for testing)
+        for (int i = 0; i < height; i++)
+        {
+            Debug.Log("\n");
+            for (int j = 0; j < width; j++)
+            {
+                Debug.Log(tileMapArray[i,j] + "\t");
+            }
+        }
+
+        Debug.Log("\n\n\n");
+        Debug.Log(spawnTilemap.size);
+        Debug.Log(tileMapArray.Length);
+    }
+
+    private void Awake()
+    {
+        TestFunction();
+    }*/
+
     private void Start()
     {
         InGameTimers.Support += GetSupport;
-
         InGameTimers.Allow += AllowChange;
+
         CurrentTowerCounts = new List<int>();
         for (int c = 0; c < TowerCounts.Count; c++)
         {
