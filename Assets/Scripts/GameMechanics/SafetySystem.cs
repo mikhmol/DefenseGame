@@ -5,7 +5,7 @@ using UnityEngine;
 public class SafetySystem : MonoBehaviour
 {
     // 1 lvl safety map
-    int[,] LvlOneSafety = new int[10,21] 
+    public static int[,] LvlOneSafety = new int[10,21] 
     {
         {1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1,1,1,3 },
         {1,1,1,1,1,1,1,1,1,1,3,3,3,3,1,3,1,1,1,1,3,},
