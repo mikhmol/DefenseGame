@@ -63,6 +63,12 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 }
                 break;
             case "isEnemy": // for enemy
+                if (other.gameObject.layer == 8)
+                {
+                    Enemy.OnFirstShoot?.Invoke();
+                    Debug.Log("first soooooooooooooot");
+                }
+                    
                 if (other.tag == "isUnit")
                 {
                     unitsList.Add(other.gameObject);
