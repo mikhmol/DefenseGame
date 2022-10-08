@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   _speed: 10
+  gridPosition: {x: 0, y: 0, z: 0}
+  tileCenter: {x: 0, y: 0, z: 0}
 --- !u!114 &5965526827449454464
 MonoBehaviour:
   m_ObjectHideFlags: 0
