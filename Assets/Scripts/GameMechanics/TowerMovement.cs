@@ -38,7 +38,7 @@ public class TowerMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(1) && _selected)
+        if (Input.GetMouseButton(1) && _selected)
         {
             CheckTile();
         }
@@ -47,24 +47,13 @@ public class TowerMovement : MonoBehaviour
 
     private void CheckTile()
     {
-        //if( map.HasTile(mousePosition))
-        //{
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(mousePosition);
-            gridPosition = map.WorldToCell(mousePosition);
-            Debug.Log(gridPosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(mousePosition);
+        gridPosition = map.WorldToCell(mousePosition);
+        Debug.Log(gridPosition);
+        if (map.HasTile(gridPosition))
+        {
             tileCenter = map.GetCellCenterWorld(gridPosition);
-        //}
-        //if (map.HasTile(gridPosition))
-        //{
-        //    Debug.Log("It has tile");
-        //    transform.position = Vector3.MoveTowards(transform.position, tileCenter, _speed * Time.deltaTime);
-        //    tileId = 1;
-        //}
-        //else
-        //{
-        //   Debug.Log("No");
-        //    tileId = 0;
-        //}
+        }
     }
 }
