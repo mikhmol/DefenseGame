@@ -29,15 +29,15 @@ public class Spawner : MonoBehaviour
     public List<int> TowerCounts;
     public List<int> CurrentTowerCounts;
 
-    //list of towers (UI)
-    public List<Image> towersUI;
+    //list of towers buttons (bg images)
+    public List<Image> towersBgImageUI;
 
     //Transform of the spawning towers (Root Object)
     public Transform spawnTowerRoot;
 
     //SpawnPoints Tilemap
     public Tilemap spawnTilemap;
-
+     
     public SpriteRenderer testSprite;
 
     //id of tower to spawn
@@ -112,7 +112,6 @@ public class Spawner : MonoBehaviour
         {
             CurrentTowerCounts[spawnID]++;
 
-            
             if(spawnID == 3)
             {
                 GameObject bayraktar = Instantiate(towersPrefabs[spawnID],new Vector3(-16f, heightOfFlight, 0f), Quaternion.identity, spawnTowerRoot);
@@ -125,6 +124,8 @@ public class Spawner : MonoBehaviour
             }
 
             DeselectTowers();
+
+            // change UI
         }
     }
     
@@ -136,14 +137,13 @@ public class Spawner : MonoBehaviour
         spawnID = id;
         //Highlight the tower
         if (CurrentTowerCounts[spawnID] < TowerCounts[spawnID])
-            towersUI[spawnID].color = Color.grey;
-
+            towersBgImageUI[spawnID].color = Color.grey;
     }
 
     public void DeselectTowers()
     {
         spawnID = -1;
-        foreach (var t in towersUI)
+        foreach (var t in towersBgImageUI)
         {
             t.color = new Color(1f, 1f, 1f);
         }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class InGameTimers : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class InGameTimers : MonoBehaviour
 
     // text fields
     public Text NextWaweCounterText;
-    public GameObject SupportHasArrived;
+    public GameObject SupportHasArrived, SupportClarification;
 
     // variable to track time
     [SerializeField] private float timeCount;
@@ -42,14 +43,26 @@ public class InGameTimers : MonoBehaviour
         }
     }
 
+    private void PushSupportClarification(bool active)
+    {
+        if (active)
+        {
+            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x + 10f, 0.5f).SetEase(Ease.OutSine);
+        }
+        else
+        {
+            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x - 10f, 0.5f).SetEase(Ease.InSine);
+        }
+    }
+
     // invisible timer until random pack of support
     IEnumerator TimeUntilSupport()
     {
         while (true)
         {
-            if (Time.time > timeCount + 30f) // timer after wave started(there have to be 30f)
+            if (Time.time > timeCount + 1f) // timer after wave started (there have to be 30f)
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(60, 121)); // random 1-2 mins time before support will arrive
+                yield return new WaitForSeconds(6f); // random 1-2 mins time before support will arrive UnityEngine.Random.Range(60, 121)
 
                 Support?.Invoke(true);
 
@@ -80,11 +93,13 @@ public class InGameTimers : MonoBehaviour
         }
     }
 
-    // info "Support has arrived!" text appears 
+    // info "Support has arrived!" text appears and Arestovich menu mooving with info panel 
     IEnumerator SupportHasArrivedText()
     {
         SupportHasArrived.SetActive(true);
+        PushSupportClarification(true);
         yield return new WaitForSeconds(5f);
+        PushSupportClarification(false);
         SupportHasArrived.SetActive(false);
     }
 }
