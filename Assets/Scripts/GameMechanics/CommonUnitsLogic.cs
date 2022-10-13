@@ -128,7 +128,7 @@ public abstract class CommonUnitsLogic : MonoBehaviour
                 // LookAt 2D
                 // get the angle
                 Vector3 norTar = (oppositeUnit.transform.position - transform.position).normalized;
-                float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg + Random.Range(0,10);
                 // rotate to angle
                 Quaternion rotation = new Quaternion();
                 rotation.eulerAngles = new Vector3(0, 0, angle);

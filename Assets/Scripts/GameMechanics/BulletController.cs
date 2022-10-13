@@ -12,14 +12,17 @@ public class BulletController : MonoBehaviour
     {
         if(bullets.Count > 0)
         {
-            foreach(Bullet bullet in bullets)
+            foreach (Bullet bullet in bullets)
             {
-                if(Vector2.Distance(bullet.gameObject.transform.position, bullet.TargetPosition) < 0.01f)
+                if (Vector2.Distance(bullet.gameObject.transform.position, bullet.TargetPosition) < 0.01f)
                 {
                     bulletsToDestroy.Add(bullet);
-                } 
+                }
                 else
+                {
                     bullet.transform.position = Vector2.MoveTowards(bullet.transform.position, bullet.TargetPosition, bullet.Speed * Time.deltaTime);
+                    //bullet.transform.position += bullet.transform.forward * bullet.Speed * Time.deltaTime;
+                }
             }
             foreach(Bullet bullet in bulletsToDestroy)
             {

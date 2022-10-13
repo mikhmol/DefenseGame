@@ -46,6 +46,9 @@ public class Spawner : MonoBehaviour
     //bayraktar "y" position (height)
     float heightOfFlight = 6.14f;
 
+    // support info text
+    public Text SupportClarificationText;
+
     private void Start()
     {
         InGameTimers.Support += GetSupport;
@@ -80,6 +83,11 @@ public class Spawner : MonoBehaviour
         {
             TowerCounts[i] += randomSupportList[i];
         }
+
+        SupportClarificationText.text = string.Format($"You have received:\nSoilders - {randomSupportList[0]};" +
+                                                                           $"\nTanks - {randomSupportList[1]};" +
+                                                                      $"\nBucephalus - {randomSupportList[2]};" +
+                                                                      $"\nBayraktars - {randomSupportList[3]}.");
 
         AllowChange(true);
     }
