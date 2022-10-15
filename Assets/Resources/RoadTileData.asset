@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RoadTileData
   m_EditorClassIdentifier: 
   tiles: []
-  walkingSpeed: 0
-  securityLevel: 0
+  walkingSpeed: 1
+  securityLevel: 1

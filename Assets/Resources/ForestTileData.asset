@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b3743f2b9a86346847e35c0930a394, type: 3}
   m_Name: ForestTileData
   m_EditorClassIdentifier: 
-  tiles: []
-  walingSpeed: 0
-  securityLevel: 0
+  tiles:
+  - {fileID: 11400000, guid: fc4b91e9d02643543945b618a5567d81, type: 2}
+  walkingSpeed: 1
+  securityLevel: 1
