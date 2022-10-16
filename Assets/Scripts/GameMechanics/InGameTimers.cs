@@ -67,6 +67,8 @@ public class InGameTimers : MonoBehaviour
                 Support?.Invoke(true);
 
                 StartCoroutine(SupportHasArrivedText());
+
+                UpdateUnitButtonsUI.UpdateUI?.Invoke();
             }
 
             yield return null;

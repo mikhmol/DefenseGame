@@ -20602,13 +20602,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6cbf1ea3618fc499f8d80417e471b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PersonelUCText: {fileID: 313734890}
-  VehiclesUCText: {fileID: 1075343971}
-  FacilitiesUCText: {fileID: 1145944373}
-  Soilders: {fileID: 1250849961}
-  Tanks: {fileID: 436247744}
-  Bucephalus: {fileID: 1226440743}
-  Bayraktars: {fileID: 544873335}
+  PersonelUCText: {fileID: 289136085}
+  VehiclesUCText: {fileID: 1773519440}
+  FacilitiesUCText: {fileID: 1841545782}
+  Soilders: {fileID: 1050883343}
+  Tanks: {fileID: 50505692}
+  Bucephalus: {fileID: 1194952510}
+  Bayraktars: {fileID: 1048681840}
+  spawner: {fileID: 1541890251}
 --- !u!1 &1555979608
 GameObject:
   m_ObjectHideFlags: 0

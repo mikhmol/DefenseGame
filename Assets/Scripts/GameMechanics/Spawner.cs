@@ -60,6 +60,8 @@ public class Spawner : MonoBehaviour
             TotalTowerCount += TowerCounts[c];
             CurrentTowerCounts.Add(0);
         }
+
+        UpdateUnitButtonsUI.UpdateUI?.Invoke();
     }
     void Update()
     {
@@ -133,7 +135,7 @@ public class Spawner : MonoBehaviour
 
             DeselectTowers();
 
-            // change UI
+            UpdateUnitButtonsUI.UpdateUI?.Invoke();
         }
     }
     
