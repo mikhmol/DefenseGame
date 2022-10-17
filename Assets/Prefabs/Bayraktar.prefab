@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2099079141184706892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7693985, y: 1.7693985, z: 1.7693985}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3230226904001439124}
@@ -114,6 +114,7 @@ MonoBehaviour:
   reloadTime: 5
   countBuletsForShoot: 2
   shootedBullets: 0
+  targetPosY: 0
   positionToReach: {x: 0, y: 7.7, z: 0}
 --- !u!50 &8795405648110539542
 Rigidbody2D:

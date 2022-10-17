@@ -26,16 +26,16 @@ public class Bayraktar : CommonUnitsLogic
         int dir = 1;
         while (true)
         {
-            if (transform.position.y - targetPosY > 0.05f)
+            if (transform.position.y - targetPosY > 0.1f)
             {
                 dir = -1;
             }
-            else if (transform.position.y - targetPosY < -0.05f)
+            else if (transform.position.y - targetPosY < -0.1f)
             {
                 dir = 1;
             }
 
-            transform.position += new Vector3(0, 0.005f * dir, 0);
+            transform.position += new Vector3(0, 0.01f * dir, 0);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -93,7 +93,6 @@ public class Bayraktar : CommonUnitsLogic
         }
     }
     
-
     GameObject FindMostProtected()
     {
         int maxHP = 0;

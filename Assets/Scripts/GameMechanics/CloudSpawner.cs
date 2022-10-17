@@ -5,7 +5,6 @@ using UnityEngine;
 public class CloudSpawner : MonoBehaviour
 {
     public static CloudSpawner instance;
-    void Avake() { instance = this; }
 
     //Enemy prefabs
     public List<GameObject> prefabs;
@@ -37,6 +36,6 @@ public class CloudSpawner : MonoBehaviour
         //Randomize the spawn point
         int randomSpawnPointID = Random.Range(0, spawnPoints.Count);
         //Instantiate the enemy prefab
-        GameObject spawnedCloud = Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
+        Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
     }
 }

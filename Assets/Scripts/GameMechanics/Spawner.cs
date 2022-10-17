@@ -43,9 +43,6 @@ public class Spawner : MonoBehaviour
     //id of tower to spawn
     int spawnID = -1;
 
-    //bayraktar "y" position (height)
-    float heightOfFlight = 6.14f;
-
     // support info text
     public Text SupportClarificationText;
 
@@ -124,8 +121,8 @@ public class Spawner : MonoBehaviour
 
             if(spawnID == 3)
             {
-                GameObject bayraktar = Instantiate(towersPrefabs[spawnID],new Vector3(-16f, heightOfFlight, 0f), Quaternion.identity, spawnTowerRoot);
-                bayraktar.GetComponent<Bayraktar>().PositionToReach = new Vector3(position.x, heightOfFlight, 0f);
+                GameObject bayraktar = Instantiate(towersPrefabs[spawnID],new Vector3(-77f, position.y + 10f, 0f), Quaternion.identity, spawnTowerRoot);
+                bayraktar.GetComponent<Bayraktar>().PositionToReach = new Vector3(position.x, position.y + 10f, 0f);
             }
             else
             {
