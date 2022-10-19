@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: dc4db3846bc32e84d8624ff5fc585f42, type: 2}
+  - {fileID: 11400000, guid: 51c0410a533874e42ac180b5a49d44f0, type: 2}
+  - {fileID: 11400000, guid: ad0acbe934d3ec546993fb5ad5fd7477, type: 2}
+  - {fileID: 11400000, guid: e2fad6f9d9ffcd547a1f47c10bef12b0, type: 2}
+  - {fileID: 11400000, guid: ba6637b85e1c9b74ea9b0d73b07c8d78, type: 2}
+  - {fileID: 11400000, guid: b520ec3f644c34b41a2cbc407d229337, type: 2}
+  - {fileID: 11400000, guid: 22d16fc0850010c478ea1ac4715ed876, type: 2}
+  - {fileID: 11400000, guid: 568ea812bab2e2b4987696f1d4cfc283, type: 2}
   walkingSpeed: 1
   securityLevel: 1

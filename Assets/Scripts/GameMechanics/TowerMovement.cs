@@ -8,6 +8,7 @@ public class TowerMovement : MonoBehaviour
     [SerializeField] Tilemap map;
     [SerializeField] private static List<TowerMovement> moveToMice = new List<TowerMovement>();
     [SerializeField] private float _speed;
+    private MapManager mapManager;
     private Vector3 _target;
     public Vector3Int gridPosition;
     public Vector3 tileCenter;
@@ -35,13 +36,19 @@ public class TowerMovement : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        mapManager = FindObjectOfType<MapManager>();
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(1) && _selected)
         {
             CheckTile();
         }
-        transform.position = Vector3.MoveTowards(transform.position, tileCenter, _speed * Time.deltaTime);
+        float _modifiedSpeed = mapManager.GetTileWalkingSpeed(transform.position) * _speed;
+        transform.position = Vector3.MoveTowards(transform.position, tileCenter, _modifiedSpeed * Time.deltaTime);
     }
 
     private void CheckTile()
@@ -52,5 +59,11 @@ public class TowerMovement : MonoBehaviour
         {
             tileCenter = map.GetCellCenterWorld(gridPosition);
         }
+        if (!map.HasTile(gridPosition))
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _selected = false;
+        }
+   
     }
 }

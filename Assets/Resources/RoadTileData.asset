@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b3743f2b9a86346847e35c0930a394, type: 3}
   m_Name: RoadTileData
   m_EditorClassIdentifier: 
-  tiles: []
-  walkingSpeed: 1
+  tiles:
+  - {fileID: 11400000, guid: 4893c501947069a4380bbf81ff8d8b07, type: 2}
+  - {fileID: 11400000, guid: f3621e5a69d90214d96ed7acd9b07de1, type: 2}
+  - {fileID: 11400000, guid: e3382b72fa7cddf4da519e3d2e5bf3c8, type: 2}
+  - {fileID: 11400000, guid: 7c14f3c1984900444a1b246ce4863539, type: 2}
+  - {fileID: 11400000, guid: f4a30b26058181748a48b44c67c56b57, type: 2}
+  - {fileID: 11400000, guid: 20f245ad4143e3d4891e0d5f079b270e, type: 2}
+  walkingSpeed: 5
   securityLevel: 1
