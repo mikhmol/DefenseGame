@@ -8,7 +8,7 @@ public class UnitsPanels : MonoBehaviour
 {
     public RectTransform personnelClassPanel, vehiclesClassPanel, facilitiesClassPanel;
 
-    private float xDefPos = 760f, yDefPos = -45f, yPos = -0.5f;
+    private float xDefPos = 760f, yDefPos = -45f, yPos =2;
     private int activeID;
 
     private void Start()

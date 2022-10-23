@@ -47,11 +47,11 @@ public class InGameTimers : MonoBehaviour
     {
         if (active)
         {
-            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x + 49f, 0.5f).SetEase(Ease.OutSine); // -607 -558
+            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x + 46f, 0.5f).SetEase(Ease.OutSine); // -607.1 -561.1
         }
         else
         {
-            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x - 49f, 0.5f).SetEase(Ease.InSine);
+            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x - 46f, 0.5f).SetEase(Ease.InSine);
         }
     }
 
