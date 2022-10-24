@@ -52,7 +52,8 @@ public class CameraMovement : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
 
-            if (SceneManager.GetActiveScene().name == "MapScene")
+
+            if (SceneManager.GetActiveScene().name == "MapScene" || SceneManager.GetActiveScene().name == "TestScene") // Activate zoom ability for android
             {
                 HandleZoomCamera(difference * 0.01f);
             }
@@ -72,7 +73,7 @@ public class CameraMovement : MonoBehaviour
         cam.transform.position = new Vector3(Mathf.Lerp(transform.position.x, finalVector.x, moveSpeed * Time.deltaTime),
                 Mathf.Lerp(transform.position.y, finalVector.y, moveSpeed * Time.deltaTime), transform.position.z);
 
-        if (SceneManager.GetActiveScene().name == "MapScene")
+        if (SceneManager.GetActiveScene().name == "MapScene" || SceneManager.GetActiveScene().name == "TestScene") // Activate zoom ability for pc
         {
             HandleZoomCamera(Input.GetAxis("Mouse ScrollWheel"));
         }
