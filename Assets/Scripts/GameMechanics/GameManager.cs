@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public static int wave = 0;
+
     public static bool isAttack = false;
     void Awake() { instance = this; }
 
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
         GetComponent<EnemySpawner>().StartSpawning();
         GetComponent<CloudSpawner>().StartSpawning();
     }*/
+
     void AttackChange(bool attack)
     {
         isAttack = attack;

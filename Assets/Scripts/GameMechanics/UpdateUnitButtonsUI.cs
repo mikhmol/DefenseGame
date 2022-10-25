@@ -41,7 +41,10 @@ public class UpdateUnitButtonsUI : MonoBehaviour
 
     private void UnitClassesCounters() 
     {
-        PersonelUCText.text = (spawner.TowerCounts[0] - spawner.CurrentTowerCounts[0]).ToString();
+        PersonelUCText.text = (spawner.TowerCounts[0] - spawner.CurrentTowerCounts[0] +
+                               spawner.TowerCounts[4] - spawner.CurrentTowerCounts[4] +
+                               spawner.TowerCounts[5] - spawner.CurrentTowerCounts[5]).ToString();
+
         VehiclesUCText.text = (spawner.TowerCounts[1] - spawner.CurrentTowerCounts[1] +
                                spawner.TowerCounts[2] - spawner.CurrentTowerCounts[2] +
                                spawner.TowerCounts[3] - spawner.CurrentTowerCounts[3]).ToString();
