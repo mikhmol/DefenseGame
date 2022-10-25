@@ -20466,11 +20466,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalEnemyCount: 0
-  EnemyCounts: 0200000002000000
+  EnemyCounts: 020000000200000002000000
   CurrentEnemyCounts: 
   prefabs:
-  - {fileID: 5081608651580772482, guid: 1e936f9d8b4ac5047ba5e31257b16b49, type: 3}
   - {fileID: 5081608651580772482, guid: 80871f32d77c0074cba7bed8606dffe6, type: 3}
+  - {fileID: 5081608651580772482, guid: 1e936f9d8b4ac5047ba5e31257b16b49, type: 3}
+  - {fileID: 5081608651580772482, guid: 8bcf5aed12462824da79e4f3281baa99, type: 3}
   spawnPoints:
   - {fileID: 2141530159}
   spawnInterval: 1
