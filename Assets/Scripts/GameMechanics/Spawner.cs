@@ -4,90 +4,11 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
-/*public class Supporter
-{
-    // 0 - soilderUnit, 1 - tankUnit, 2 - bucephalusUnit, 3 - bayraktarUnit,
-    // 4 - javelinItem, 5 - machinegunItem
-
-    // list of lists of different help on the start wave
-    public static List<List<int>> SupportListStart = new List<List<int>>
-    { 
-        new List<int> { 2, 1, 1, 0, 0, 0 }, 
-        new List<int> { 1, 0, 2, 0, 1, 0 }, 
-        new List<int> { 2, 2, 0, 0, 0, 0 },  
-    };
-
-    ////////////////////////////////////////////////////////////////////////////////////
-
-    // list of lists of different help on the first stage
-    public static List<List<int>> SupportListFirstStage = new List<List<int>>
-    {
-        new List<int> { 2, 0, 0, 0, 0, 0 },
-        new List<int> { 0, 1, 0, 0, 0, 0 },
-        new List<int> { 0, 0, 1, 0, 0, 0 },
-        new List<int> { 0, 0, 0, 0, 1, 0 },
-    };
-
-    ////////////////////////////////////////////////////////////////////////////////////
-
-    // list of lists of different help on the second stage part 1
-    public static List<List<int>> SupportListSecondStagePart1 = new List<List<int>>
-    {
-        new List<int> { 2, 0, 0, 0, 0, 0 },
-        new List<int> { 1, 0, 0, 0, 0, 1 },
-        new List<int> { 0, 0, 0, 0, 1, 1 },
-    };
-
-    // list of lists of different help on the second stage part 2
-    public static List<List<int>> SupportListSecondStagePart2 = new List<List<int>>
-    {
-        new List<int> { 1, 0, 0, 1, 0, 0 },
-        new List<int> { 1, 1, 0, 0, 0, 0 },
-        new List<int> { 0, 0, 1, 0, 1, 0 },
-    };
-
-    // list of lists of different help on the second stage part 3
-    public static List<List<int>> SupportListSecondStagePart3 = new List<List<int>>
-    {
-        new List<int> { 3, 0, 0, 0, 0, 0 },
-        new List<int> { 0, 1, 1, 0, 0, 0 },
-        new List<int> { 0, 2, 0, 0, 0, 0 },
-    };
-
-    ////////////////////////////////////////////////////////////////////////////////////
-    
-    // list of lists of different help on the third stage part 1
-    public static List<List<int>> SupportListThirdStagePart1 = new List<List<int>>
-    {
-        // new List<int> { 0, 0, 0, 0, 0, 0 } + artillery
-        new List<int> { 2, 0, 0, 0, 0, 0 },
-        new List<int> { 0, 0, 0, 1, 0, 0 },
-        new List<int> { 0, 1, 0, 0, 0, 0 }, 
-    };
-
-    // list of lists of different help on the third stage part 2
-    public static List<List<int>> SupportListThirdStagePart2 = new List<List<int>>
-    {
-        // new List<int> { 0, 0, 0, 0, 0, 0 } + aviation
-        new List<int> { 2, 0, 0, 0, 0, 0 },
-        new List<int> { 0, 0, 0, 0, 0, 1 },
-        new List<int> { 0, 2, 0, 0, 0, 0 },
-    };
-
-    // list of lists of different help on the third stage part 3
-    public static List<List<int>> SupportListThirdStagePart3 = new List<List<int>>
-    {
-        new List<int> { 0, 0, 0, 0, 0, 1 },
-        new List<int> { 0, 0, 0, 0, 1, 0 },
-        new List<int> { 1, 0, 0, 0, 0, 0 },
-    };
-}*/  
-
-
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField]bool allowToSpawnUnits = true;
+    [SerializeField] int chanceOfHelp;
+    [SerializeField] bool allowToSpawnUnits = true;
 
     [SerializeField] private int TotalTowerCount;
 
@@ -117,6 +38,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        chanceOfHelp = 0;
         InGameTimers.Support += GetSupport;
         InGameTimers.Allow += AllowChange;
 
@@ -145,59 +67,72 @@ public class Spawner : MonoBehaviour
 
     public void GetSupport(bool param)
     {
-        List<int> randomSupportList = new List<int>();
+        int num = Random.Range(-50, 50) + 50;
+        Debug.Log(num);
+        if (num > chanceOfHelp)
+        {
 
-        int currentWave = GameManager.wave;
+            chanceOfHelp += 20;
+            Debug.Log(chanceOfHelp);
+            SupportClarificationText.text = "";
+        }
+        else
+        {
+            chanceOfHelp = 60;
+            List<int> randomSupportList = new List<int>();
 
-        if (currentWave == 0)
-        {
-            randomSupportList = Supporter.SupportListStart[Random.Range(0, Supporter.SupportListStart.Count)];
-        }
-        else if (currentWave >= 1 && currentWave <= 5) 
-        {
-            randomSupportList = Supporter.SupportListFirstStage[Random.Range(0, Supporter.SupportListFirstStage.Count)];
-        }
-        else if (currentWave >= 6 && currentWave <= 10)
-        {
-            randomSupportList = Supporter.SupportListSecondStagePart1[Random.Range(0, Supporter.SupportListSecondStagePart1.Count)];
-        }
-        else if (currentWave >= 11 && currentWave <= 15)
-        {
-            randomSupportList = Supporter.SupportListSecondStagePart2[Random.Range(0, Supporter.SupportListSecondStagePart2.Count)];
-        }
-        else if (currentWave >= 16 && currentWave <= 20)
-        {
-            randomSupportList = Supporter.SupportListSecondStagePart3[Random.Range(0, Supporter.SupportListSecondStagePart3.Count)];
-        }
-        else if (currentWave >= 21 && currentWave <= 25)
-        {
-            randomSupportList = Supporter.SupportListThirdStagePart1[Random.Range(0, Supporter.SupportListThirdStagePart1.Count)];
-        }
-        else if (currentWave >= 26 && currentWave <= 30)
-        {
-            randomSupportList = Supporter.SupportListThirdStagePart2[Random.Range(0, Supporter.SupportListThirdStagePart2.Count)];
-        }
-        else if (currentWave >= 31 && currentWave <= 35)
-        {
-            randomSupportList = Supporter.SupportListThirdStagePart3[Random.Range(0, Supporter.SupportListThirdStagePart3.Count)];
-        }
+            int currentWave = GameManager.wave;
 
-        ///////////////////////////////////////////////////
-
-        SupportClarificationText.text = string.Format(($"You have received:"));
-
-        for (int i = 0; i < randomSupportList.Count; i++)
-        {
-            TowerCounts[i] += randomSupportList[i];
-
-            if (randomSupportList[i] > 0)
+            if (currentWave == 0)
             {
-                SupportClarificationText.text += string.Format($"\n{UnitStringNames.UnitNames[i]} - {randomSupportList[i]};");
+                randomSupportList = Supporter.SupportListStart[Random.Range(0, Supporter.SupportListStart.Count)];
+            }
+            else if (currentWave >= 1 && currentWave <= 5)
+            {
+                randomSupportList = Supporter.SupportListFirstStage[Random.Range(0, Supporter.SupportListFirstStage.Count)];
+            }
+            else if (currentWave >= 6 && currentWave <= 10)
+            {
+                randomSupportList = Supporter.SupportListSecondStagePart1[Random.Range(0, Supporter.SupportListSecondStagePart1.Count)];
+            }
+            else if (currentWave >= 11 && currentWave <= 15)
+            {
+                randomSupportList = Supporter.SupportListSecondStagePart2[Random.Range(0, Supporter.SupportListSecondStagePart2.Count)];
+            }
+            else if (currentWave >= 16 && currentWave <= 20)
+            {
+                randomSupportList = Supporter.SupportListSecondStagePart3[Random.Range(0, Supporter.SupportListSecondStagePart3.Count)];
+            }
+            else if (currentWave >= 21 && currentWave <= 25)
+            {
+                randomSupportList = Supporter.SupportListThirdStagePart1[Random.Range(0, Supporter.SupportListThirdStagePart1.Count)];
+            }
+            else if (currentWave >= 26 && currentWave <= 30)
+            {
+                randomSupportList = Supporter.SupportListThirdStagePart2[Random.Range(0, Supporter.SupportListThirdStagePart2.Count)];
+            }
+            else if (currentWave >= 31 && currentWave <= 35)
+            {
+                randomSupportList = Supporter.SupportListThirdStagePart3[Random.Range(0, Supporter.SupportListThirdStagePart3.Count)];
             }
 
-        }
+            ///////////////////////////////////////////////////
 
-        AllowChange(true);
+            SupportClarificationText.text = string.Format(($"You have received:"));
+
+            for (int i = 0; i < randomSupportList.Count; i++)
+            {
+                TowerCounts[i] += randomSupportList[i];
+
+                if (randomSupportList[i] > 0)
+                {
+                    SupportClarificationText.text += string.Format($"\n{UnitStringNames.UnitNames[i]} - {randomSupportList[i]};");
+                }
+
+            }
+
+            AllowChange(true);
+        }
     }
 
     void DetectSpawnPoint()
