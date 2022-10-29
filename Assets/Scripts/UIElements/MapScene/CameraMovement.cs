@@ -64,7 +64,7 @@ public class CameraMovement : MonoBehaviour
             // calculate distance between drag origin and new position if it is still held down
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
 
-            Debug.Log("origin " + dragOrigin + " newPosition " + cam.ScreenToWorldPoint(Input.mousePosition) + " = difference " + difference);
+            //Debug.Log("origin " + dragOrigin + " newPosition " + cam.ScreenToWorldPoint(Input.mousePosition) + " = difference " + difference);
 
             // move the camera by that distance and use Mathf.Lerp - camera motion smoothing 
             finalVector = ClampCamera(cam.transform.position + difference); 

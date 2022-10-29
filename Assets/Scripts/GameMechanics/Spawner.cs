@@ -68,12 +68,12 @@ public class Spawner : MonoBehaviour
     public void GetSupport(bool param)
     {
         int num = Random.Range(-50, 50) + 50;
-        Debug.Log(num);
+        //Debug.Log(num);
         if (num > chanceOfHelp)
         {
 
             chanceOfHelp += 20;
-            Debug.Log(chanceOfHelp);
+            //Debug.Log(chanceOfHelp);
             SupportClarificationText.text = "";
         }
         else

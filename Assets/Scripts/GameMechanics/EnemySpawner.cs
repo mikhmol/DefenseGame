@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
         CurrentEnemyCounts = new List<int>();
         for (int c = 0; c < this.EnemyCounts.Count; c++)
         {
-            Debug.Log(this.EnemyCounts[c]);
+            //Debug.Log(this.EnemyCounts[c]);
             TotalEnemyCount += this.EnemyCounts[c];
             CurrentEnemyCounts.Add(0);
         }
@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
         {
             //Call the spawn method
             t += SpawnEnemy();
-            Debug.Log(t);
+            //Debug.Log(t);
             //Wait spawn interval
             yield return new WaitForSeconds(spawnInterval);
             //Recall the same coroutine

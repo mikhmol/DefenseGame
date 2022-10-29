@@ -10,6 +10,7 @@ public class MapManager : MonoBehaviour
     private Dictionary<TileBase, TileData> dataFromTiles;
     private float walkingSpeed;
     private float securityLevel;
+    private Vector3Int gridPosition;
 
     private void Awake()
     {
@@ -47,9 +48,24 @@ public class MapManager : MonoBehaviour
 
     public float GetTileWalkingSpeed(Vector2 worldPosition)
     {
-        Vector3Int gridPosition = map.WorldToCell(worldPosition);
+        gridPosition = map.WorldToCell(worldPosition);
         TileBase tile = map.GetTile(gridPosition);
         walkingSpeed = dataFromTiles[tile].walkingSpeed;
         return walkingSpeed;
+    }
+
+    public void SetColorToTheCells()
+    {
+        Vector3Int LEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y, 0);
+        Vector3Int RIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y, 0);
+        Vector3Int DOWN = new Vector3Int(gridPosition.x, gridPosition.y - 1, 0);
+        Vector3Int DOWNLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y - 1, 0);
+        Vector3Int DOWNRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y - 1, 0);
+        Vector3Int UP = new Vector3Int(gridPosition.x, gridPosition.y + 1, 0);
+        Vector3Int UPLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y + 1, 0);
+        Vector3Int UPRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y + 1, 0);
+        Debug.Log("Left is" + LEFT);
+        map.SetTileFlags(LEFT, TileFlags.None);
+        map.SetColor(LEFT, Color.green);
     }
 }
