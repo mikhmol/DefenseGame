@@ -64,7 +64,7 @@ public class TowerMovement : MonoBehaviour
         if (!map.HasTile(gridPosition))
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                 = false;
+                 //= false;
         }
     }
 }
