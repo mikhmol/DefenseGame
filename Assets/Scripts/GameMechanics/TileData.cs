@@ -7,5 +7,5 @@ using UnityEngine.Tilemaps;
 public class TileData : ScriptableObject
 {
     public TileBase[] tiles;
-    public float walkingSpeed, securityLevel;
+    public float walkingSpeed, securityLevel, energyNeeded;
 }

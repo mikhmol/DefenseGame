@@ -9,6 +9,7 @@ public class TowerMovement : MonoBehaviour
     [SerializeField] private static List<TowerMovement> moveToMice = new List<TowerMovement>();
     [SerializeField] private float _speed;
     [SerializeField] private float _range;
+    [SerializeField] private float _energy;
     private MapManager mapManager;
     private Vector3 _target;
     public Vector3Int gridPosition;
@@ -27,6 +28,7 @@ public class TowerMovement : MonoBehaviour
     {
         _selected = true;
         gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        mapManager.SetColorToTheCells();
         foreach (TowerMovement obj in moveToMice)
         {
             if(obj != this)
@@ -46,7 +48,6 @@ public class TowerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(1) && _selected)
         {
-            mapManager.SetColorToTheCells();
             CheckTile();
         }
         float _modifiedSpeed = mapManager.GetTileWalkingSpeed(transform.position) * _speed;
@@ -61,10 +62,8 @@ public class TowerMovement : MonoBehaviour
         {
             tileCenter = map.GetCellCenterWorld(gridPosition);
         }
-        if (!map.HasTile(gridPosition))
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                 //= false;
-        }
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        _selected = false;
+        mapManager.RemoveColorFromTheCells();
     }
 }

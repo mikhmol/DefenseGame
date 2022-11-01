@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b3743f2b9a86346847e35c0930a394, type: 3}
+  m_Name: RiverTileData
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: f08a3322340dc5841b34d28fb61b885a, type: 2}
+  - {fileID: 11400000, guid: 3f2a3faf1bf230949af1526ba1e96b65, type: 2}
+  - {fileID: 11400000, guid: b05065f5e4298c345a37e84c665f785a, type: 2}
+  - {fileID: 11400000, guid: bb742257ef8745d4d87be15533ac1b2d, type: 2}
+  - {fileID: 11400000, guid: ef7f8ec3212ccb64aaaf3b83514be5c9, type: 2}
+  - {fileID: 11400000, guid: 6fd2945e9201cea40af6db87c5eb9ab6, type: 2}
+  - {fileID: 11400000, guid: 51a7b51b3f1950a489a413430a8e78a8, type: 2}
+  - {fileID: 11400000, guid: 67a68e01961a35e4487763cb013334a6, type: 2}
+  - {fileID: 11400000, guid: bd20e55079e3e3b4cbd1a06cfeb13dc1, type: 2}
+  - {fileID: 11400000, guid: c60831933a3d1f94f8de77c0ffddc355, type: 2}
+  - {fileID: 11400000, guid: db09960cf88c0c344906f42d6926f22c, type: 2}
+  - {fileID: 11400000, guid: 4aecbc8c6b20ef2499d1dbb9e2ff2b27, type: 2}
+  - {fileID: 11400000, guid: bf7d2c8cec18efd4aa6cb0729738649a, type: 2}
+  - {fileID: 11400000, guid: 7cb121c65d4390347b8393d811ad5247, type: 2}
+  - {fileID: 11400000, guid: 9d088ccab1126664287c0e953556f95f, type: 2}
+  - {fileID: 11400000, guid: 3e71723d3527cfe4cad8e2a593336e6d, type: 2}
+  - {fileID: 11400000, guid: a3b00a29ecf3d1e4fbd1d4e43a033844, type: 2}
+  - {fileID: 11400000, guid: 8dcb425c8a059ed489a427310e847211, type: 2}
+  walkingSpeed: 1
+  securityLevel: 1
+  energyNeeded: 0

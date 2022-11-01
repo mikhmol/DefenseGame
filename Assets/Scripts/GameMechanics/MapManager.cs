@@ -11,6 +11,7 @@ public class MapManager : MonoBehaviour
     private float walkingSpeed;
     private float securityLevel;
     private Vector3Int gridPosition;
+    private Vector3Int LEFT, RIGHT, DOWN, DOWNLEFT, DOWNRIGHT, UP, UPLEFT, UPRIGHT;
 
     private void Awake()
     {
@@ -56,16 +57,41 @@ public class MapManager : MonoBehaviour
 
     public void SetColorToTheCells()
     {
-        Vector3Int LEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y, 0);
-        Vector3Int RIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y, 0);
-        Vector3Int DOWN = new Vector3Int(gridPosition.x, gridPosition.y - 1, 0);
-        Vector3Int DOWNLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y - 1, 0);
-        Vector3Int DOWNRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y - 1, 0);
-        Vector3Int UP = new Vector3Int(gridPosition.x, gridPosition.y + 1, 0);
-        Vector3Int UPLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y + 1, 0);
-        Vector3Int UPRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y + 1, 0);
-        Debug.Log("Left is" + LEFT);
+        LEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y, 0);
+        RIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y, 0);
+        DOWN = new Vector3Int(gridPosition.x, gridPosition.y - 1, 0);
+        DOWNLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y - 1, 0);
+        DOWNRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y - 1, 0);
+        UP = new Vector3Int(gridPosition.x, gridPosition.y + 1, 0);
+        UPLEFT = new Vector3Int(gridPosition.x - 1, gridPosition.y + 1, 0);
+        UPRIGHT = new Vector3Int(gridPosition.x + 1, gridPosition.y + 1, 0);
         map.SetTileFlags(LEFT, TileFlags.None);
+        map.SetTileFlags(RIGHT, TileFlags.None);
+        map.SetTileFlags(DOWN, TileFlags.None);
+        map.SetTileFlags(DOWNLEFT, TileFlags.None);
+        map.SetTileFlags(DOWNRIGHT, TileFlags.None);
+        map.SetTileFlags(UP, TileFlags.None);
+        map.SetTileFlags(UPLEFT, TileFlags.None);
+        map.SetTileFlags(UPRIGHT, TileFlags.None);
         map.SetColor(LEFT, Color.green);
+        map.SetColor(RIGHT, Color.green);
+        map.SetColor(DOWN, Color.green);
+        map.SetColor(DOWNLEFT, Color.green);
+        map.SetColor(DOWNRIGHT, Color.green);
+        map.SetColor(UP, Color.green);
+        map.SetColor(UPLEFT, Color.green);
+        map.SetColor(UPRIGHT, Color.green);
+    }
+
+    public void RemoveColorFromTheCells()
+    {
+        map.SetColor(LEFT, Color.white);
+        map.SetColor(RIGHT, Color.white);
+        map.SetColor(DOWN, Color.white);
+        map.SetColor(DOWNLEFT, Color.white);
+        map.SetColor(DOWNRIGHT, Color.white);
+        map.SetColor(UP, Color.white);
+        map.SetColor(UPLEFT, Color.white);
+        map.SetColor(UPRIGHT, Color.white);
     }
 }
