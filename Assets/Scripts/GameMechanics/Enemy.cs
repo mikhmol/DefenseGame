@@ -18,6 +18,7 @@ public class Enemy : CommonUnitsLogic
     protected override void Update()
     {
         base.Update();
+
         if (transform.position.x < -15)
             Debug.Log("YOU ARE LOOOOOOSER");
         if(isFirstShoot == 1)

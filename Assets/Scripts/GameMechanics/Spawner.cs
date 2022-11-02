@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private int TotalTowerCount;
 
+    [SerializeField] InGameTimers ingametimers;
+
     //list of towers (prefabs) that will instatiate
     public List<GameObject> towersPrefabs;
 
@@ -68,16 +70,19 @@ public class Spawner : MonoBehaviour
     public void GetSupport(bool param)
     {
         int num = Random.Range(-50, 50) + 50;
-        //Debug.Log(num);
+
         if (num > chanceOfHelp)
         {
-
+            // increase chance
             chanceOfHelp += 20;
-            //Debug.Log(chanceOfHelp);
-            SupportClarificationText.text = "";
+
+            // output info about support
+            int randomText = Random.Range(0, SupportNotArrivedTexts.NoSupportText.Count);
+            SupportClarificationText.text = SupportNotArrivedTexts.NoSupportText[randomText];
         }
         else
         {
+            // reset chance
             chanceOfHelp = 60;
             List<int> randomSupportList = new List<int>();
 
@@ -118,8 +123,8 @@ public class Spawner : MonoBehaviour
 
             ///////////////////////////////////////////////////
 
+            // output info about support
             SupportClarificationText.text = string.Format(($"You have received:"));
-
             for (int i = 0; i < randomSupportList.Count; i++)
             {
                 TowerCounts[i] += randomSupportList[i];
@@ -130,9 +135,9 @@ public class Spawner : MonoBehaviour
                 }
 
             }
-
-            AllowChange(true);
         }
+        ingametimers.ShowSupportInfo();
+        AllowChange(true);
     }
 
     void DetectSpawnPoint()

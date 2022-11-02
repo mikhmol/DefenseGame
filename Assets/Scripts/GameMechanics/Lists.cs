@@ -7,6 +7,18 @@ public class UnitStringNames
     public static List<string> UnitNames = new List<string> { "Soilders", "Tanks", "Bucephalus", "Bayraktars", "Javelins", "Machine Guns" };
 }
 
+public class SupportNotArrivedTexts
+{
+    public static List<string> NoSupportText = new List<string>
+    {
+        "Oops, support is delayed. Hold on to the next wave.",
+        "Support has not arrived yet, you have to hold on by yourself.",
+        "Support is still on the way, don't lose heart, hold on a little longer.",
+    };
+}
+
+
+
 public class Supporter
 {
     // 0 - soilderUnit, 1 - tankUnit, 2 - bucephalusUnit, 3 - bayraktarUnit,

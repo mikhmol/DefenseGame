@@ -14,21 +14,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Attack.attack += AttackChange;
-;
         InGameTimers.Allow += AllowChange;
 
-        //GetComponent<HealthSystem>().Init();
-        //StartCoroutine(WaveStartDelay());
-    }
-
-    /*IEnumerator WaveStartDelay()
-    {
-        //wait for X seconds
-        yield return new WaitForSeconds(2f);
-        //Start the enemy spawning
-        GetComponent<EnemySpawner>().StartSpawning();
         GetComponent<CloudSpawner>().StartSpawning();
-    }*/
+        //GetComponent<HealthSystem>().Init();
+    }
 
     void AttackChange(bool attack)
     {
@@ -39,7 +29,10 @@ public class GameManager : MonoBehaviour
         if (!allow)
         {
             GetComponent<EnemySpawner>().StartSpawning();
-            GetComponent<CloudSpawner>().StartSpawning();
+        }
+        else 
+        {
+            wave++;
         }
     }
 }

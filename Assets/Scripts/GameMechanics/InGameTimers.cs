@@ -7,82 +7,69 @@ using DG.Tweening;
 
 public class InGameTimers : MonoBehaviour
 {
+    public Spawner spawner;
+
     // call Support action and Allow action
     public static Action<bool> Allow, Support;
 
     // text fields
     public Text NextWaweCounterText;
-    public GameObject SupportHasArrived, SupportClarification;
+    public Button StartNextWaveBtn;
+
+    IEnumerator stopTimeCoroutine;
+
+    public GameObject SupportHasArrived, spawnPoint;
+
+    public Animator SupportClarification;
 
     // variable to track time
     [SerializeField] private float timeCount;
 
-    private bool startWave = false, waveStarted = false;
-
-    private void Awake()
-    {
-        timeCount = 1f; // there have to be 30
-    }
+    private bool startWave = false;
 
     private void Start()
     {
-        // starting two timers (one of them is visible)
-        StartCoroutine(TimeUntilWave());
-        StartCoroutine(TimeUntilSupport());
+        stopTimeCoroutine = TimeUntilWave();
+        StartCoroutine(stopTimeCoroutine);
+        StartNextWaveBtn.enabled = true;
     }
 
-    private void Update()
+    public void StartNextWaveButton() 
     {
-        // visible timer until wave start
-        if ((timeCount <= 0 || startWave) && !waveStarted)
-        {
-            StopCoroutine(TimeUntilWave());
-            NextWaweCounterText.text = "00:00";
-            waveStarted = true;
-            Allow?.Invoke(false);
-        }
-    }
+        StopCoroutine(stopTimeCoroutine);
+        stopTimeCoroutine = TimeUntilWave();
+        StartCoroutine(stopTimeCoroutine);
 
-    private void PushSupportClarification(bool active)
-    {
-        if (active)
-        {
-            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x + 46f, 0.5f).SetEase(Ease.OutSine); // -607.1 -561.1
-        }
-        else
-        {
-            SupportClarification.transform.DOMoveX(SupportClarification.transform.position.x - 46f, 0.5f).SetEase(Ease.InSine);
-        }
-    }
+        StartNextWaveBtn.enabled = false;
+        startWave = true;
 
-    // invisible timer until random pack of support
-    IEnumerator TimeUntilSupport()
-    {
-        while (true)
-        {
-            if (Time.time > timeCount + 1f) // timer after wave started (there have to be 30f)
-            {
-                yield return new WaitForSeconds(6f); // random 1-2 mins time before support will arrive UnityEngine.Random.Range(60, 121)
+        NextWaweCounterText.text = "00:00";
 
-                Support?.Invoke(true);
-
-                StartCoroutine(SupportHasArrivedText());
-
-                UpdateUnitButtonsUI.UpdateUI?.Invoke();
-            }
-
-            yield return null;
-        }
+        Allow?.Invoke(false);
+        StartCoroutine(CheckLastEnemyAlive());
     }
 
     // timer until wave logic
-    IEnumerator TimeUntilWave()
+    public IEnumerator TimeUntilWave()
     {
+        timeCount = 120f;
+
         while (timeCount > 0 && !startWave)
         {
-            if (timeCount > 10)
+            if (timeCount > 10) 
             {
-                NextWaweCounterText.text = "00:" + timeCount.ToString();
+                int min = (int)timeCount / 60;
+                int sec = (int)timeCount % 60;
+
+                if (sec >= 10)
+                {
+                    NextWaweCounterText.text = "0" + min.ToString() + ":" + sec.ToString();
+                }
+                else
+                {
+                    NextWaweCounterText.text = "0" + min.ToString() + ":0" + sec.ToString();
+                }
+
                 timeCount--;
                 yield return new WaitForSeconds(1f);
             }
@@ -93,6 +80,57 @@ public class InGameTimers : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
+
+        timeCount = 0f;
+        startWave = true;
+
+        Allow?.Invoke(false);
+        StartCoroutine(CheckLastEnemyAlive());
+
+        NextWaweCounterText.text = "00:00";
+    }
+
+    IEnumerator CheckLastEnemyAlive()
+    {
+        yield return new WaitForSeconds(5f);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            if (spawnPoint.transform.childCount == 0)
+            {
+                StopCoroutine(stopTimeCoroutine);
+                stopTimeCoroutine = TimeUntilWave();
+                StartCoroutine(stopTimeCoroutine);
+
+                StartNextWaveBtn.enabled = true;
+                startWave = false;
+                Allow?.Invoke(true);
+                spawner.GetSupport(true);
+                ShowSupportInfo();
+
+                break;
+            }
+        }
+    }
+
+    private void PushSupportClarification(bool active)
+    {
+        if (active)
+        {
+            SupportClarification.SetBool("active", true);
+        }
+        else
+        {
+            SupportClarification.SetBool("active", false);
+        }
+    }
+
+
+    public void ShowSupportInfo() 
+    {
+        StartCoroutine(SupportHasArrivedText());
     }
 
     // info "Support has arrived!" text appears and Arestovich menu mooving with info panel 
