@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         if (!allow)
         {
             GetComponent<EnemySpawner>().StartSpawning();
+            Debug.Log("Start spawning");
         }
         else 
         {

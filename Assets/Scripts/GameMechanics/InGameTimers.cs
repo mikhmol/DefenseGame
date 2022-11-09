@@ -17,7 +17,7 @@ public class InGameTimers : MonoBehaviour
     public Button StartNextWaveBtn;
 
     IEnumerator stopTimeCoroutine;
-
+    IEnumerator checkLastEnemyAlive;
     public GameObject SupportHasArrived, spawnPoint;
 
     public Animator SupportClarification;
@@ -29,16 +29,20 @@ public class InGameTimers : MonoBehaviour
 
     private void Start()
     {
+        
         stopTimeCoroutine = TimeUntilWave();
         StartCoroutine(stopTimeCoroutine);
         StartNextWaveBtn.enabled = true;
+        
     }
 
     public void StartNextWaveButton() 
     {
-        StopCoroutine(stopTimeCoroutine);
+        //StopCoroutine(stopTimeCoroutine);
+        
         stopTimeCoroutine = TimeUntilWave();
         StartCoroutine(stopTimeCoroutine);
+        
 
         StartNextWaveBtn.enabled = false;
         startWave = true;
@@ -46,14 +50,18 @@ public class InGameTimers : MonoBehaviour
         NextWaweCounterText.text = "00:00";
 
         Allow?.Invoke(false);
-        StartCoroutine(CheckLastEnemyAlive());
+        if(checkLastEnemyAlive != null)
+            StopCoroutine(checkLastEnemyAlive);
+        checkLastEnemyAlive = CheckLastEnemyAlive();
+        StartCoroutine(checkLastEnemyAlive);
     }
 
     // timer until wave logic
+    
     public IEnumerator TimeUntilWave()
     {
-        timeCount = 120f;
-
+        timeCount = 5f;
+        Debug.Log("time count = " + timeCount);
         while (timeCount > 0 && !startWave)
         {
             if (timeCount > 10) 
@@ -81,35 +89,49 @@ public class InGameTimers : MonoBehaviour
             }
         }
 
-        timeCount = 0f;
+        //timeCount = 0f;
         startWave = true;
-
+        Debug.Log("from timer");
         Allow?.Invoke(false);
-        StartCoroutine(CheckLastEnemyAlive());
+        if(checkLastEnemyAlive != null)
+            StopCoroutine(checkLastEnemyAlive);
+        checkLastEnemyAlive = CheckLastEnemyAlive();
+        StartCoroutine(checkLastEnemyAlive);
+
+
 
         NextWaweCounterText.text = "00:00";
     }
-
+    
     IEnumerator CheckLastEnemyAlive()
     {
         yield return new WaitForSeconds(5f);
-
+        Debug.Log("from check");
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.01f);
 
             if (spawnPoint.transform.childCount == 0)
             {
+                StartNextWaveBtn.enabled = true;
+                startWave = false;
+
                 StopCoroutine(stopTimeCoroutine);
                 stopTimeCoroutine = TimeUntilWave();
                 StartCoroutine(stopTimeCoroutine);
 
-                StartNextWaveBtn.enabled = true;
-                startWave = false;
+                
+
+                
                 Allow?.Invoke(true);
                 spawner.GetSupport(true);
                 ShowSupportInfo();
-
+                Debug.Log("All were killed");
+                /*
+                StopCoroutine(checkLastEnemyAlive);
+                checkLastEnemyAlive = CheckLastEnemyAlive();
+                StartCoroutine(checkLastEnemyAlive);
+                */
                 break;
             }
         }
